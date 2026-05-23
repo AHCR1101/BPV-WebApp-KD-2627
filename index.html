@@ -3,14 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Albeda Kwalificatiedossier Viewer</title>
+  <title>Albeda Horecacollege - Kwalificatiedossier Viewer</title>
   <style>
-    /* Albeda Huisstijl Variabelen */
+    /* Strikte Albeda Kleurcodes en Huisstijlwaarden[cite: 9] */
     :root {
       --albeda-blue: #0a62af;
       --albeda-light-blue: #85c9f0;
       --albeda-orange: #f29400;
       --albeda-gray: #d9d9d9;
+      --albeda-bg: #f7f9fa;
       --albeda-dark: #333333;
       --white: #ffffff;
     }
@@ -22,38 +23,23 @@
     }
 
     body {
-      font-family: 'Arial', sans-serif;
+      font-family: 'Arial', sans-serif; /* Arial cross-platform fallback[cite: 9] */
       color: var(--albeda-dark);
-      background-color: #f7f9fa;
+      background-color: var(--albeda-bg);
       line-height: 1.6;
     }
 
-    /* Header & Logo Positionering (Label-stijl conform Brandbook) */
-    header {
-      background-color: var(--albeda-blue);
-      color: var(--white);
-      padding: 20px;
-      position: relative;
-      border-bottom: 5px solid var(--albeda-orange);
-    }
-
-    .header-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
+    /* Logo-label ophangen aan de pagina conform Brandbook p.5[cite: 9] */
     .logo-label {
       position: absolute;
       top: 0;
       right: 40px;
       background: var(--white);
-      padding: 10px;
-      border-radius: 0 0 8px 8px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      max-width: 120px;
+      padding: 12px;
+      border-radius: 0 0 4px 4px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      width: 110px;
+      z-index: 10;
     }
 
     .logo-label img {
@@ -62,71 +48,104 @@
       display: block;
     }
 
-    .title-area h1 {
-      font-size: 1.8rem;
-      margin-bottom: 5px;
+    header {
+      background-color: var(--albeda-blue);
+      color: var(--white);
+      padding: 35px 20px;
+      border-bottom: 5px solid var(--albeda-orange); /* Oranje huisstijlaccent[cite: 9] */
     }
 
-    /* Doelgroep Filter Knoppen (UI) */
-    .role-selector {
-      max-width: 1200px;
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .title-area h1 {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    /* Filters / Selectors */
+    .filter-section {
+      max-width: 1100px;
       margin: 30px auto 10px auto;
       padding: 0 20px;
-      display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
     }
 
-    .role-btn {
+    .filter-label {
+      font-size: 0.9rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: var(--albeda-blue);
+      margin-bottom: 10px;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .filter-btn {
       font-family: 'Arial', sans-serif;
       font-weight: bold;
-      font-size: 1rem;
+      font-size: 0.95rem;
       padding: 12px 24px;
       border: 2px solid var(--albeda-blue);
       background-color: var(--white);
       color: var(--albeda-blue);
       cursor: pointer;
       border-radius: 4px;
-      transition: all 0.3s ease;
+      transition: all 0.2s ease;
     }
 
-    .role-btn:hover, .role-btn.active {
+    .filter-btn:hover, .filter-btn.active {
       background-color: var(--albeda-blue);
       color: var(--white);
-      box-shadow: 0 4px 10px rgba(10, 98, 175, 0.2);
     }
 
-    .role-btn.active {
+    .filter-btn.active {
       border-color: var(--albeda-orange);
     }
 
-    /* Dynamic Content Area */
+    select {
+      padding: 12px;
+      font-family: 'Arial', sans-serif;
+      font-size: 1rem;
+      border: 2px solid var(--albeda-blue);
+      border-radius: 4px;
+      width: 100%;
+      max-width: 450px;
+      background-color: var(--white);
+    }
+
+    /* Content Styling */
     main {
-      max-width: 1200px;
-      margin: 20px auto;
+      max-width: 1100px;
+      margin: 25px auto;
       padding: 0 20px;
     }
 
     .intro-vlak {
       background: var(--white);
-      border-left: 6px solid var(--albeda-orange);
+      border-left: 6px solid var(--albeda-orange); /* Grafische vierkanten/lijnen[cite: 9] */
       padding: 20px;
-      margin-bottom: 25px;
+      margin-bottom: 30px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     }
 
-    /* Kaarten voor Kerntaken en Werkprocessen */
     .card {
       background: var(--white);
       border: 1px solid var(--albeda-gray);
       border-radius: 4px;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
       overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
 
     .card-header {
-      background-color: #f1f5f9;
+      background-color: #f8fafc;
       padding: 15px 20px;
       border-bottom: 2px solid var(--albeda-gray);
       display: flex;
@@ -136,16 +155,16 @@
 
     .card-header h2 {
       color: var(--albeda-blue);
-      font-size: 1.3rem;
+      font-size: 1.25rem;
     }
 
     .badge {
       background-color: var(--albeda-light-blue);
       color: var(--albeda-blue);
-      padding: 4px 10px;
+      padding: 4px 12px;
       font-weight: bold;
       font-size: 0.8rem;
-      border-radius: 12px;
+      border-radius: 20px;
     }
 
     .card-body {
@@ -154,7 +173,7 @@
 
     .wp-block {
       border-bottom: 1px solid var(--albeda-gray);
-      padding: 15px 0;
+      padding: 20px 0;
     }
 
     .wp-block:last-child {
@@ -163,97 +182,96 @@
 
     .wp-title {
       font-size: 1.1rem;
-      color: #333;
-      margin-bottom: 8px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .wp-title span {
       font-weight: bold;
-      color: var(--albeda-orange);
+      color: var(--albeda-blue);
+      margin-bottom: 10px;
     }
 
-    /* Doelgroep-specifieke weergave elementen */
-    .student-view .meta-section, .student-view .desc-section { display: none; }
-    .pleider-view .meta-section, .pleider-view .behavior-section { display: none; }
-    .docent-view .behavior-section { display: block; }
+    /* Doelgroep weergave via CSS Klassen (Aangestuurd door app.js) */
+    .view-section { display: none; }
+    .student-mode .student-view { display: block; }
+    .pleider-mode .pleider-view { display: block; }
+    .docent-mode .docent-view { display: block; }
 
-    .meta-vlak {
-      background-color: #fafbfc;
-      padding: 12px;
-      border: 1px dashed var(--albeda-blue);
+    .docent-meta {
+      background-color: #f1f5f9;
+      padding: 15px;
+      border-radius: 4px;
       margin-bottom: 15px;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
     }
 
     ul.check-list {
       list-style-type: none;
+      margin-top: 8px;
     }
 
     ul.check-list li {
       position: relative;
-      padding-left: 20px;
-      margin-bottom: 5px;
+      padding-left: 25px;
+      margin-bottom: 6px;
     }
 
     ul.check-list li::before {
-      content: "✓";
+      content: "■"; /* Oranje vierkantjes als opsommingsteken conform p.10[cite: 9] */
       position: absolute;
       left: 0;
       color: var(--albeda-orange);
-      font-weight: bold;
+      font-size: 0.8rem;
+      top: 1px;
     }
 
     .tag-container {
       display: flex;
-      gap: 5px;
-      margin-top: 8px;
+      gap: 6px;
+      margin-top: 12px;
       flex-wrap: wrap;
     }
 
     .tag {
       background: #e2e8f0;
       font-size: 0.75rem;
-      padding: 2px 8px;
+      padding: 3px 10px;
       border-radius: 4px;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
 
+  <div class="logo-label">
+    <img src="LOGO.jpg" alt="Albeda Horecacollege Logo">
+  </div>
+
   <header>
-    <div class="header-container">
+    <div class="container">
       <div class="title-area">
         <h1>Albeda Horecacollege</h1>
-        <p>Interactieve Kwalificatiedossier Viewer</p>
-      </div>
-      <!-- Het logo-label hangt aan de pagina conform Brandbook p.5 -->
-      <div class="logo-label">
-        <img src="LOGO.jpg" alt="Albeda Horecacollege Logo">
+        <p id="dossier-meta-title">Laden van dossier...</p>
       </div>
     </div>
   </header>
 
-  <!-- De Drie Ingangen/Filters -->
-  <div class="role-selector">
-    <button class="role-btn active" onclick="switchRole('student', this)">Ik ben Student</button>
-    <button class="role-btn" onclick="switchRole('pleider', this)">Ik ben Praktijkopleider</button>
-    <button class="role-btn" onclick="switchRole('docent', this)">Ik ben Docent</button>
-  </div>
-
-  <main id="app-container" class="student-view">
-    <!-- Introductietekst die dynamisch wisselt -->
-    <div class="intro-vlak" id="intro-text">
-      <strong>Welkom Student!</strong> Hieronder zie je direct welk gedrag er van je verwacht wordt tijdens je opleiding en welke competenties je gaat ontwikkelen in de praktijk.
+  <div class="filter-section">
+    <div class="filter-label">1. Kies uw rol (Invalshoek):</div>
+    <div class="btn-group">
+      <button class="filter-btn active" onclick="switchRole('student', this)">Ik ben Student</button>
+      <button class="filter-btn" onclick="switchRole('pleider', this)">Ik ben Praktijkopleider</button>
+      <button class="filter-btn" onclick="switchRole('docent', this)">Ik ben Docent</button>
     </div>
 
-    <!-- Hier worden de kaarten gegenereerd -->
-    <div id="content-grid"></div>
+    <div class="filter-label">2. Selecteer Uitstroomprofiel / Opleiding:</div>
+    <select id="profiel-select" onchange="onProfielChange(this)"></select>
+  </div>
+
+  <main id="main-container" class="student-mode">
+    <div class="intro-vlak" id="intro-text">
+      <strong>Jouw Gedrag & Journey</strong><br>Hieronder zie je precies wat je moet doen en laten zien in het hospitalitybedrijf om een top-gastervaring te creëren. Focus op het verwachte gedrag!
+    </div>
+
+    <div id="dynamic-content"></div>
   </main>
 
-  <!-- Scripts inladen -->
   <script src="data.js"></script>
   <script src="app.js"></script>
 </body>
