@@ -101,16 +101,6 @@
       color: var(--albeda-light-blue);
     }
 
-    .albeda-logo {
-      display: block;
-      max-width: 132px;
-      height: auto;
-      background: var(--white);
-      padding: 8px;
-      border-radius: 4px;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
-    }
-
     /* LANDINGSPAGE LAYOUT */
     #landing-layer {
       padding: 30px 0;
@@ -152,7 +142,7 @@
     }
 
     .intro-opsomming li::before {
-      content: "";
+      content: "■";
       position: absolute;
       left: 0;
       color: var(--albeda-orange);
@@ -194,136 +184,8 @@
       font-size: 0.9rem;
     }
 
-
-    .curriculum-intro {
-      background: var(--white);
-      border-left: 6px solid var(--albeda-orange);
-      padding: 20px;
-      margin-bottom: 25px;
-      border-radius: 0 4px 4px 0;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
-    }
-
-    .curriculum-intro h2 {
-      color: var(--albeda-blue);
-      font-size: 1.35rem;
-      margin-bottom: 8px;
-    }
-
-    .curriculum-intro p {
-      color: #4a5568;
-      line-height: 1.5;
-    }
-
-    .curriculum-year {
-      background: var(--white);
-      border: 1px solid var(--albeda-gray);
-      border-radius: 4px;
-      margin-bottom: 18px;
-      overflow: hidden;
-    }
-
-    .curriculum-year-header,
-    .curriculum-period-header {
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      user-select: none;
-    }
-
-    .curriculum-year-header {
-      background: #f8fafc;
-      border-bottom: 2px solid var(--albeda-gray);
-      padding: 16px 20px;
-    }
-
-    .curriculum-year-header h3,
-    .curriculum-period-header h4 {
-      color: var(--albeda-blue);
-      margin: 0;
-    }
-
-    .curriculum-year-header::after,
-    .curriculum-period-header::after {
-      content: "+";
-      color: var(--albeda-orange);
-      font-weight: bold;
-      font-size: 1.2rem;
-    }
-
-    .curriculum-year.open > .curriculum-year-header::after,
-    .curriculum-period.open > .curriculum-period-header::after {
-      content: "-";
-    }
-
-    .curriculum-year-body,
-    .curriculum-period-body {
-      display: none;
-    }
-
-    .curriculum-year.open > .curriculum-year-body,
-    .curriculum-period.open > .curriculum-period-body {
-      display: block;
-    }
-
-    .curriculum-year-body {
-      padding: 18px;
-    }
-
-    .curriculum-period {
-      border: 1px solid #e2e8f0;
-      border-radius: 4px;
-      margin-bottom: 12px;
-      overflow: hidden;
-    }
-
-    .curriculum-period-header {
-      background: #ffffff;
-      padding: 14px 16px;
-    }
-
-    .curriculum-period-body {
-      border-top: 1px solid #e2e8f0;
-      padding: 16px;
-      background: #fbfdff;
-    }
-
-    .curriculum-block-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 14px;
-    }
-
-    .curriculum-block {
-      background: #ffffff;
-      border: 1px solid #e2e8f0;
-      border-radius: 4px;
-      padding: 14px;
-    }
-
-    .curriculum-block strong {
-      color: var(--albeda-blue);
-      display: block;
-      margin-bottom: 8px;
-    }
-
-    .curriculum-block ul {
-      margin-left: 18px;
-      color: #374151;
-      line-height: 1.55;
-    }
-
-    .curriculum-note {
-      color: #64748b;
-      font-size: 0.88rem;
-      margin-top: 10px;
-    }
-
     /* INTERACTIEF DASHBOARD LAYER & CONTROLS */
-    #dashboard-layer,
-    #curriculum-layer {
+    #dashboard-layer {
       display: none;
       padding: 30px 0;
     }
@@ -502,7 +364,7 @@
       color: #4a5568;
       overflow: hidden;
       display: -webkit-box;
-      -webkit-line-clamp: 3; /* Afkappen op exact 3 regels bij initiele render */
+      -webkit-line-clamp: 3; /* Afkappen op exact 3 regels bij initiële render */
       -webkit-box-orient: vertical;
       transition: max-height 0.4s ease;
     }
@@ -530,123 +392,17 @@
     .intro-box {
       background: var(--white);
       border-left: 6px solid var(--albeda-orange);
-      padding: 18px 20px;
+      padding: 15px 20px;
       margin-bottom: 30px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
       font-size: 0.95rem;
     }
 
-    .intro-box h3 {
-      color: var(--albeda-blue);
-      font-size: 1.1rem;
-      margin-bottom: 8px;
-    }
-
-    .intro-box p {
-      color: #475569;
-      margin-bottom: 12px;
-    }
-
-    .role-summary-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 10px;
-      margin-top: 14px;
-    }
-
-    .role-summary-item {
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-      border-radius: 4px;
-      padding: 12px;
-    }
-
-    .role-summary-item strong {
-      color: var(--albeda-blue);
-      display: block;
-      font-size: 0.84rem;
-      text-transform: uppercase;
-      margin-bottom: 4px;
-    }
-
-    .student-language-card {
-      background: #fff7ed;
-      border: 1px solid #fed7aa;
-      border-left: 4px solid var(--albeda-orange);
-      border-radius: 4px;
-      padding: 12px;
-      margin-bottom: 14px;
-    }
-
-    .student-language-card strong {
-      color: #9a3412;
-      display: block;
-      font-size: 0.86rem;
-      text-transform: uppercase;
-      margin-bottom: 4px;
-    }
-
-    .student-language-card p {
-      color: #431407;
-      font-size: 0.94rem;
-      line-height: 1.5;
-    }
-
-    .evidence-panel {
-      background: rgba(255, 255, 255, 0.72);
-      border: 1px solid #fed7aa;
-      border-radius: 4px;
-      margin-top: 12px;
-      padding: 10px 12px;
-    }
-
-    .evidence-panel .evidence-title {
-      color: #9a3412;
-      display: block;
-      font-size: 0.84rem;
-      text-transform: uppercase;
-      margin-bottom: 4px;
-    }
-
-    .evidence-panel p {
-      margin-bottom: 8px;
-    }
-
-    .evidence-list {
-      list-style: none;
-      display: grid;
-      gap: 5px;
-    }
-
-    .evidence-list li {
-      color: #431407;
-      font-size: 0.88rem;
-      line-height: 1.35;
-      padding-left: 18px;
-      position: relative;
-    }
-
-    .evidence-list li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      color: var(--albeda-orange);
-      font-weight: bold;
-    }
-
     .download-wrapper {
       margin-bottom: 30px;
     }
 
-
-    .download-wrapper {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .download-pdf-btn,
-    .print-bpv-btn {
+    .download-pdf-btn {
       display: inline-flex;
       align-items: center;
       gap: 8px;
@@ -658,12 +414,6 @@
       border-radius: 4px;
       text-decoration: none;
       cursor: pointer;
-      border: none;
-      font-family: var(--font-arial);
-    }
-
-    .print-bpv-btn {
-      background-color: var(--albeda-blue);
     }
 
     .card {
@@ -672,35 +422,6 @@
       border-radius: 4px;
       margin-bottom: 25px;
       overflow: hidden;
-    }
-
-
-    .accordion-card .card-header {
-      cursor: pointer;
-      user-select: none;
-    }
-
-    .accordion-card:not(.open) .card-body {
-      display: none;
-    }
-
-    .accordion-card .card-header::after {
-      content: "+";
-      margin-left: auto;
-      color: var(--albeda-orange);
-      font-weight: bold;
-    }
-
-    .accordion-card.open .card-header::after {
-      content: "-";
-    }
-
-
-    .wp-summary {
-      color: #475569;
-      font-size: 0.92rem;
-      margin: -2px 0 14px;
-      line-height: 1.5;
     }
 
     .card-header {
@@ -771,7 +492,7 @@
     }
 
     ul.check-list li::before {
-      content: "";
+      content: "■";
       position: absolute;
       left: 0;
       color: var(--albeda-orange);
@@ -844,7 +565,6 @@
     }
 
     @media (min-width: 600px) {
-      .role-summary-grid { grid-template-columns: repeat(3, 1fr); }
       .btn-group { flex-direction: row; }
       .role-btn { flex: 1; }
       .nav-row { flex-direction: row; justify-content: space-between; align-items: center; }
@@ -853,8 +573,7 @@
     }
 
     @media (min-width: 850px) {
-      .landing-grid { grid-template-columns: repeat(4, 1fr); }
-      .curriculum-block-grid { grid-template-columns: repeat(2, 1fr); }
+      .landing-grid { grid-template-columns: repeat(3, 1fr); }
       .tool-grid { grid-template-columns: 2fr 1fr; }
       .matrix-btn { width: auto; }
     }
@@ -876,7 +595,7 @@
             <p id="app-subtitle" class="app-meta-subtitle">Dossier- & BPV-Kompas Portaal</p>
           </div>
           <div class="albeda-brand-label">
-            <img class="albeda-logo" src="LOGO.jpg" alt="Albeda Horecacollege logo">
+            albeda<br><span class="sub-college">horecacollege</span>
           </div>
         </div>
       </div>
@@ -890,8 +609,8 @@
           <p>Dit interactieve portaal is speciaal ontwikkeld voor de modernisering van de horeca-opleidingen binnen het Albeda Horecacollege. Selecteer hieronder een van de hoofddomeinen of verplichte examenvakken om te starten:</p>
           
           <ul class="intro-opsomming">
-            <li><strong>De Student:</strong> Krijgt direct inzicht in het verwachte praktijkgedrag en de 'guest journey' tijdens de stageperiode;</li>
-            <li><strong>De Praktijkopleider:</strong> Ziet in een oogopslag de kerntaken en het concreet op te leveren resultaat op de werkvloer om studenten objectief te kunnen begeleiden;</li>
+            <li><strong>De Student:</strong> Krijgt direct inzicht in het verwachte praktijkgedrag en de 'guest journey' tijdens de stageperiode[cite: 1];</li>
+            <li><strong>De Praktijkopleider:</strong> Ziet in één oogopslag de kerntaken en het concreet op te leveren resultaat op de werkvloer om studenten objectief te kunnen begeleiden;</li>
             <li><strong>De Docent:</strong> Beschikt over de volledige onderwijskundige structuur, de formele complexiteit en de geverifieerde vakkennis per mbo-niveau.</li>
           </ul>
         </div>
@@ -899,44 +618,17 @@
         <div class="landing-grid">
           <div class="domein-card" onclick="openDomeinDashboard('htl')">
             <h2>Hospitality, Tourism & Leisure</h2>
-            <p>Crebo: 23425  Uitstroomprofielen mbo-niveau 2, 3 en 4</p>
+            <p>Crebo: 23425 • Uitstroomprofielen mbo-niveau 2, 3 en 4</p>
           </div>
           <div class="domein-card" onclick="openDomeinDashboard('keuken')">
             <h2>Keuken & Foodservice</h2>
-            <p>Crebo: 23426  Uitstroomprofielen mbo-niveau 2, 3 en 4</p>
+            <p>Crebo: 23426 • Uitstroomprofielen mbo-niveau 2, 3 en 4</p>
           </div>
           <div class="domein-card" onclick="openDomeinDashboard('generiek')">
             <h2>Generieke Onderdelen & Keuzedelen</h2>
-            <p>Wettelijke Exameneisen  Nederlands, Rekenen, LOB & Engels</p>
-          </div>
-          <div class="domein-card" onclick="openCurriculumDashboard()">
-            <h2>Curriculum</h2>
-            <p>Leerjaren, onderwijsperiodes en schoolinhoud per opleiding</p>
+            <p>Wettelijke Exameneisen • Nederlands, Rekenen, LOB & Engels</p>
           </div>
         </div>
-      </div>
-    </div>
-
-    <!-- CURRICULUM SCHERM -->
-    <div id="curriculum-layer">
-      <div class="container">
-        <div class="nav-row">
-          <button class="back-btn" onclick="sluitCurriculumEnTerug()"> Terug naar Hoofddomeinen</button>
-        </div>
-
-        <div class="curriculum-intro">
-          <h2>Curriculum</h2>
-          <p>Kies een opleiding en bekijk per leerjaar en onderwijsperiode welke thema's, vaardigheden en gekoppelde werkprocessen centraal staan op school.</p>
-        </div>
-
-        <div class="tool-grid">
-          <div class="tool-block">
-            <div class="control-label">Kies opleiding:</div>
-            <select id="dropdown-curriculum-profielen" onchange="switchCurriculumProfiel(this.value)"></select>
-          </div>
-        </div>
-
-        <div id="curriculum-render-target"></div>
       </div>
     </div>
 
@@ -945,7 +637,7 @@
       <div class="container">
         
         <div class="nav-row">
-          <button class="back-btn" onclick="sluitDashboardEnTerug()"> Terug naar Hoofddomeinen</button>
+          <button class="back-btn" onclick="sluitDashboardEnTerug()">← Terug naar Hoofddomeinen</button>
           <input type="text" id="live-search-box" class="search-input" placeholder="Live zoeken in dossier (bv. HACCP)..." oninput="executeLiveSearch()">
         </div>
 
@@ -974,7 +666,7 @@
         </div>
 
         <div class="intro-box" id="role-intro-text">
-          <strong>Jouw Gedrag & Journey</strong><br>Hieronder zie je precies wat je moet doen en laten zien in het hospitalitybedrijf om een top-gastervaring te creeren. Focus op het verwachte gedrag!
+          <strong>Jouw Gedrag & Journey</strong><br>Hieronder zie je precies wat je moet doen en laten zien in het hospitalitybedrijf om een top-gastervaring te creëren. Focus op het verwachte gedrag!
         </div>
 
         <div class="cards-render-target" id="cards-render-target"></div>
@@ -990,7 +682,7 @@
           <p class="footer-title">Albeda Horecacollege</p>
           <p class="footer-text">
             <strong>Cees van den Heuvel</strong><br>
-            BPV Coordinator
+            BPV Coördinator
           </p>
         </div>
         <div class="footer-col right">

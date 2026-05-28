@@ -1,0 +1,290 @@
+// data.js
+const kwalificatieDossierDatabase = {
+  domeinen: [
+    {
+      id: "htl",
+      titel: "Hospitality, Tourism & Leisure",
+      crebo: "23425",
+      profielen: [
+        { 
+          id: "medewerker_hospitality", 
+          naam: "Medewerker hospitality", 
+          niveau: "Mbo-niveau 2", 
+          crebo: "27052", 
+          pdfLink: "Medewerker hospitality_16.pdf",
+          samenvatting: "Als Medewerker hospitality ben jij het échte visitekaartje en het eerste aanspreekpunt binnen de gastvrijheidsbranche[cite: 1]. Met een open, proactieve en servicegerichte houding zorg je ervoor dat nationale en internationale gasten zich direct welkom voelen vanaf het moment dat ze binnenstappen[cite: 1]. Jouw passie voor gastvrijheid zit in je DNA en dat laat je dagelijks zien binnen uiteenlopende hospitalitybedrijven, van restaurants tot hotels en evenementenlocaties[cite: 1].<br><br>In de dagelijkse praktijk ben je verantwoordelijk voor een breed en gevarieerd takenpakket[cite: 1]. Je bereidt gastgerichte werkzaamheden organisatorisch voor, kiest de juiste materialen en middelen, ziet er representatief uit en draagt actief bij aan een sociaal en fysiek veilige omgeving voor gasten en collega's[cite: 1]. Daarnaast verwerk je reserveringen in digitale systemen, ontvang je gasten hartelijk en hanteer je verkooptechnieken om producten en diensten succesvol aan te bieden[cite: 1].<br><br>Binnen het specifieke profieldeel focus je je op de operationele bediening[cite: 1]. Je neemt bestellingen accuraat op, informeert gasten over de menukaart und allergenen, en maakt dranken of kleine bestellingen zelfstandig klaar[cite: 1]. Vervolgens serveer je deze uit met een professionele oog-handcoördinatie en debarrasseer je de tafels tijdig[cite: 1]. Ook werk je enthousiast mee aan de opbouw, uitvoering en afronding van diverse activiteiten en evenementen binnen de formule[cite: 1]."
+        },
+        { 
+          id: "zelfstandig_medewerker_hospitality", 
+          naam: "Zelfstandig medewerker hospitality", 
+          niveau: "Mbo-niveau 3", 
+          crebo: "27053", 
+          pdfLink: "Zelfstandig medewerker hospitality_16.pdf",
+          samenvatting: "Als Zelfstandig medewerker hospitality combineer je gestandaardiseerde werkwijzen met het werken naar eigen inzicht[cite: 2]. Je bent werkzaam aan de balie, receptie, frontoffice of in de bediening, en bent het centrale aanspreekpunt voor gasten om hen een uitstekende gastervaring te bieden[cite: 2]. Dit vraagt om een brede productkennis en uitstekende communicatieve vaardigheden om vakdeskundige adviezen te kunnen geven[cite: 2].<br><br>Naast de uitvoerende basistaken draag je een gedeelde verantwoordelijkheid voor het resultaat en het routinewerk van collega's[cite: 2]. Je plant de dagelijkse werkzaamheden op de werkvloer, delegeert taken aan medewerkers en voorziet hen van de nodige opdrachten, instructies en constructieve feedback[cite: 2]. Je bent alert op de samenwerking binnen het team om een gezonde werksfeer en een hoge gasttevredenheid te waarborgen[cite: 2].<br><br>Commercieel handelen en voorraadbeheer vormen een belangrijk onderdeel van jouw rol[cite: 2]. Je beheert en registreert de voorraad nauwkeurig volgens het FIFO-principe en de HACCP-eisen, controleert opslagcondities en handelt eventuele retourzendingen af[cite: 2]. Daarnaast ben je proactief in de verkoop middels up- en cross-selling, behandel je klachten zelfstandig om de verwachtingen van de gast te overtreffen, en signaleer je knelpunten om actieve verbetervoorstellen te doen[cite: 2]."
+        },
+        { 
+          id: "leidinggevende_hospitality", 
+          naam: "Leidinggevende hospitality", 
+          niveau: "Mbo-niveau 4", 
+          crebo: "27056", 
+          pdfLink: "Leidinggevende 'Hospitality'_16.pdf",
+          samenvatting: "Als Leidinggevende hospitality stuur je vanuit jouw operationele expertise medewerkers aan op de werkvloer en werk je zelf actief mee[cite: 3]. Je bent werkzaam binnen bedrijven gericht op eten, drinken en slapen, waar je de focus legt op de dagelijkse operatie[cite: 3]. Je bent het directe aanspreekpunt voor gasten en zorgt ervoor dat alle activiteiten vlekkeloos verlopen, wat sterke organisatorische kwaliteiten en flexibiliteit vereist[cite: 3].<br><br>Jouw verantwoordelijkheid ligt bij de operationele aansturing van het team en het vertalen van strategisch beleid naar de praktijk[cite: 3]. Je maakt personeelsplanningen, coördineert de onboarding van nieuwe medewerkers en begeleidt hen prestatie- en ontwikkelingsgericht[cite: 3]. Hierbij pas je je leiderschapsstijl aan op de persoon en de situation, met specifieke aandacht voor vitale en duurzame inzetbaarheid[cite: 3]. Ook misstanden of meningsverschillen binnen het team los je professioneel op[cite: 3].<br><br>Da側にst stuur je bedrijfsprocessen aan en bewaak je de budgetten en kwaliteitsnormen[cite: 3]. Je maakt operationele plannen met begrotingsvoorstellen, voert kwaliteitscontroles en inspecties uit op het gebied van voedselveiligheid (HACCP) en arbo, en haalt systematisch feedback op bij gasten[cite: 3]. Je analyseert commerciële kansen en risico's om onderbouwde verbetervoorstellen te doen ter optimalisering van de bedrijfsvoering[cite: 3]."
+        },
+        { 
+          id: "ondernemer_hospitality", 
+          naam: "Ondernemer hospitality", 
+          niveau: "Mbo-niveau 4", 
+          crebo: "27059", 
+          pdfLink: "Ondernemer hospitality_16.pdf",
+          samenvatting: "Als Ondernemer hospitality start en/of leid je een zelfstandig klein bedrijf of bedrijfsonderdeel gericht op eten, drinken en slapen[cite: 4]. Je combineert strategische visie met operationele daadkracht, aangezien je een groot deel van de tijd zelf meewerkt op de werkvloer[cite: 4]. Jouw blik is nadrukkelijk gericht op de lange termijn, waarbij de financiële gezondheid, marktoverlevingskansen, innovatie en relatiebeheer met gasten en zakelijke netwerkpartners centraal staan[cite: 4].<br><br>Jouw hoofdverantwoordelijkheid ligt bij het ontwerpen en bewaken van het totale bedrijfsbeleid[cite: 4]. Je formuleert een integraal businessplan met duidelijke, meetbare doelstellingen en stelt een passend marketing-, HR- en financieel plan op[cite: 4]. Je maakt complexe commerciële calculaties, bepaalt inkoop- en verkoopprijzen en analyseert grondig financiële rapportages om de winstgevendheid te optimaliseren en risico's te minimaliseren[cite: 4].<br><br>Daarnaast geef je vorm aan het kwaliteits- en sociaal-hygiënisch beleid binnen de onderneming[cite: 4]. Je ontwerpt heldere huisregels, instrueert medewerkers over voedselveiligheid (HACCP) en sociale veiligheid, en handhaaft protocollen effectief bij overtredingen of calamiteiten[cite: 4]. Wat personeelsmanagement betreft focus je je op de volledige medewerkersreis ('employee journey'), met specifieke aandacht voor het effectief boeien, binden en behouden van jouw personeelsleden[cite: 4]."
+        }
+      ]
+    },
+    {
+      id: "keuken",
+      titel: "Keuken & Foodservice",
+      crebo: "23426",
+      profielen: [
+        { 
+          id: "kok", 
+          naam: "Kok", 
+          niveau: "Mbo-niveau 2", 
+          crebo: "27060", 
+          pdfLink: "Kok_16.pdf",
+          samenvatting: "Als Kok werk je in de dynamische (open) keuken van een horeca-, catering- of foodservicebedrijf, waar je je voornamelijk richt op de bereiding van gastronomische maaltijden[cite: 5]. Je bent motorisch vaardig, gefocust en gaat planmatig te werk om een uitstekende gastervaring te realiseren[cite: 5]. Omdat de keuken gekenmerkt wordt door piektijden en hectiek, bezit je de nodige flexibiliteit en stressbestendigheid[cite: 5].<br><br>Jouw hoofdtaak is het routinematig en gestandaardiseerd bereiden van componenten van gerechten en complete maaltijden volgens receptuur[cite: 5]. Je voert de mise en place nauwkeurig uit (schoonmaken, opdelen, afwegen), berekent grondstoffen om bij wisselende gastaantallen, en past diverse kooktechnieken bedreven toe[cite: 5]. Voor uitgifte werk je gerechten à-la-minute af tot aantrekkelijke creaties door ze vakkundig te dresseren en te garneren, conform de geldende kwaliteitsnormen en presentatie-eisen[cite: 5].<br><br>Daarnaast speel je een actieve rol in het voorraadbeheer en de keukenhygiëne[cite: 5]. Je controleert voorraden op aantal en houdbaarheid, plaatst bestellingen bij leveranciers en slaat geleverde goederen op volgens de HACCP- en FIFO-richtlijnen[cite: 5]. Je werkt te allen tijde kostenbewust, minimaliseert voedselverspilling en zorgt na afloop van de dienst voor een grondige schoonmaak en desinfectie van de apparatuur en werkruimtes[cite: 5]."
+        },
+        { 
+          id: "zelfstandig_werkend_kok", 
+          naam: "Zelfstandig werkend kok", 
+          niveau: "Mbo-niveau 3", 
+          crebo: "27062", 
+          pdfLink: "Zelfstandig werkend kok_16.pdf",
+          samenvatting: "Als Zelfstandig werkend kok ben je werkzaam in de gastronomische keuken van horecabedrijven in het midden- en hogere segment[cite: 6]. Je combineert gestandaardiseerde werkwijzen met creatieve technieken en het werken naar eigen inzicht om hoogwaardige maaltijden te bereiden[cite: 6]. Je bent mede-verantwoordelijk voor het behalen van het gezamenlijke keukeneindresultaat en de gasttevredenheid binnen het concept[cite: 6].<br><br>Naast de operationele bereidingstaken heb je een belangrijke coördinerende en begeleidende rol op de werkvloer[cite: 6]. Je maakt werkplanningen en roosters voor medewerkers, verdeelt taken op basis van individuele capaciteiten en houdt rekening met cao- en Arbowetgeving[cite: 6]. Je geeft heldere, duidelijke aanwijzingen en instructies aan (lerende) medewerkers, spreekt hen direct aanspreekpunt op onveilig gedrag en voorziet hen van constructieve feedback[cite: 6].<br><br>Vernieuwing, efficiëntie en kwaliteitsbewaking vormen de kern van jouw vakmanschap[cite: 6]. Je draagt actief creatieve ideeën aan voor de verbetering van gerechten, combineert innovatieve smaakprofielen en legt nieuwe recepturen vast in het receptensysteem[cite: 6]. Daarnaast bewaak je het doelmatige gebruik van grondstoffen en apparatuur om voedselverspilling te minimaliseren, analyseer je de productieprocessen en doe je voorstellen om de efficiëntie en duurzaamheid te verhogen[cite: 6]."
+        },
+        { 
+          id: "gespecialiseerd_kok", 
+          naam: "Gespecialiseerd kok", 
+          niveau: "Mbo-niveau 4", 
+          crebo: "27064",
+          pdfLink: "Gespecialiseerd kok_16.pdf",
+          samenvatting: "Als Gespecialiseerd kok werk je in een gastronomische keuken in het midden- en hogere segment, die veelal is opgedeeld in verschillende parties[cite: 7]. Je richt op het bereiden, verfijnen en vernieuwen van hoogwaardige culinaire gerechten die bijzonder, creatief en luxe van aard zijn[cite: 7]. Dit vraagt om een uitzonderlijk hoge vakspecialiteit, culinaire creativiteit en het vermogen om complexe bereidingswijzen feilloos uit te voeren[cite: 7].<br><br>Je vervult een aansturende, inspirerende en bewakende rol binnen jouw partie[cite: 7]. Je maakt detailplanningen en roosters voor de medewerkers, delegeert werkzaamheden effectief en geeft heldere operationele opdrachten[cite: 7]. Je motiveert en stimuleert het team om hun beste beentje voor te zetten, bewaakt nauwgezet de kwaliteit en productiviteit, en lost eventuele stagnaties in de werkzaamheden zorgvuldig op[cite: 7].<br><br>Op het gebied van het gastronomische aanbod ben je een actieve vernieuwer[cite: 7]. Je volgt trends en ontwikkelingen in de culinaire wereld op de voet en vertaalt deze naar innovatieve recepturen en menuraamwerken[cite: 7]. Je adviseert collega's en gasten over menu-ontwerpen, smaakprofielen en presentatietechnieken met passie[cite: 7]. Daarnaast analyseer je verkoopcijfers en reviews grondig om concrete, onderbouwde voorstellen te doen ter verbetering van het aanbod[cite: 7]."
+        },
+        { 
+          id: "leidinggevende_keuken", 
+          naam: "Leidinggevende keuken", 
+          niveau: "Mbo-niveau 4", 
+          crebo: "27065", 
+          pdfLink: "Leidinggevende keuken_16.pdf",
+          samenvatting: "Als Leidinggevende keuken bekleed je een centrale coördinerende en leidinggevende positie in de open of gesloten keuken van hoogwaardige horecabedrijven[cite: 8]. Hoewel je operationeel meewerkt op de werkvloer (zoals bij de bereiding of het voorraadbeheer), ligt jouw primaire focus op het sturen, bewaken en continu verbeteren van de totale keukenprocessen[cite: 8]. Dit vereist sterke leidinggevende capaciteiten en een scherp kostenbewustzijn[cite: 8].<br><br>Je geeft direct leiding aan het keukenteam, waarbij je rekening houdt met de diverse werkopvattingen en competenties van medewerkers[cite: 8]. Je maakt werkroosters en personeelsplanningen, delegeert taken helder en bewaakt nauwgezet de productiviteit en kwaliteitsnormen[cite: 8]. Je organiseert en leidt gestructureerd werkoverleggen, voert formele en informele personeelsgesprekken en legt gemaakte afspraken nauwkeurig vast conform de bedrijfsprocedures[cite: 8].<br><br>Op beleidsmatig en financieel niveau ben je verantwoordelijk voor de keukenoptimalisatie[cite: 8]. Je signaleert maatschappelijke en branchetrends om een volledig operationeel plan met een plan van aanpak op te stellen[cite: 8]. Je voert kostenberekeningen uit, maakt begrotingen en bewaakt keukenfinanciën (omzet, marges, kosten) proactief[cite: 8]. Daarnaast pas je menu-engineering toe om op basis van populariteit en foodcost menukaartwijzigingen voor te stellen die direct bijdragen aan de financiële doelstellingen[cite: 8]."
+        }
+      ]
+    },
+    {
+      id: "generiek",
+      titel: "Generieke Onderdelen & Keuzedelen",
+      crebo: "Centrale Exameneisen",
+      profielen: [
+        { id: "generiek_niveau2", naam: "Generieke eisen - Niveau 2", niveau: "Mbo-niveau 2", crebo: "Wettelijk", typering: "Dit onderdeel omvat de wettelijk verplichte generieke exameneisen voor mbo-niveau 2. Hieronder vallen Nederlands (Referentieniveau 2F), Rekenen (Referentieniveau 2F) en Loopbaan & Burgerschap. Deze vakken zijn essentieel voor de basisvorming en de succesvolle afronding van de opleiding." },
+        { id: "generiek_niveau3", naam: "Generieke eisen - Niveau 3", niveau: "Mbo-niveau 3", crebo: "Wettelijk", typering: "Dit onderdeel omvat de wettelijk verplichte generieke exameneisen voor mbo-niveau 3. Hieronder vallen Nederlands (Referentieniveau 2F), Rekenen (Referentieniveau 3F) en Loopbaan & Burgerschap. De eisen zijn afgestemd op het functioneren als zelfstandig vakman in de branche." },
+        { id: "generiek_niveau4", naam: "Generieke eisen - Niveau 4", niveau: "Mbo-niveau 4", crebo: "Wettelijk", typering: "Dit onderdeel omvat de wettelijk verplichte generieke exameneisen voor mbo-niveau 4. Hieronder vallen Nederlands (Referentieniveau 3F), Rekenen (Referentieniveau 3F), Engels (Niveau B1) en Loopbaan & Burgerschap. Deze vakken bereiden de student intensief voor op leidinggevende of ondernemerstaken en eventuele doorstroom naar het HBO." }
+      ]
+    }
+  ],
+  
+  profielKerntaken: {
+    "medewerker_hospitality": ["HTL-B1-K1", "HTL-B1-K2", "HTL-P1-K1"],
+    "zelfstandig_medewerker_hospitality": ["HTL-B1-K1", "HTL-B1-K2", "HTL-P2-K1", "HTL-P2-K2"],
+    "leidinggevende_hospitality": ["HTL-B1-K1", "HTL-B1-K2", "HTL-P5-K1"],
+    "ondernemer_hospitality": ["HTL-B1-K1", "HTL-B1-K2", "HTL-P8-K1"],
+    
+    "kok": ["KEUKEN-B1-K1", "KEUKEN-B1-K2", "KEUKEN-B1-K3"],
+    "zelfstandig_werkend_kok": ["KEUKEN-B1-K1", "KEUKEN-B1-K2", "KEUKEN-B1-K3", "KEUKEN-P3-K1"],
+    "gespecialiseerd_kok": ["KEUKEN-B1-K1", "KEUKEN-B1-K2", "KEUKEN-B1-K3", "KEUKEN-P5-K1"],
+    "leidinggevende_keuken": ["KEUKEN-B1-K1", "KEUKEN-B1-K2", "KEUKEN-B1-K3", "KEUKEN-P6-K1"],
+    
+    "generiek_niveau2": ["GEN-NED-2F", "GEN-REK-2F", "GEN-LOB-BUR"],
+    "generiek_niveau3": ["GEN-NED-2F", "GEN-REK-3F", "GEN-LOB-BUR"],
+    "generiek_niveau4": ["GEN-NED-3F", "GEN-REK-3F", "GEN-ENG-B1", "GEN-LOB-BUR"]
+  },
+
+  kerntakenDatabase: {
+    "HTL-B1-K1": {
+      code: "B1-K1", titel: "Verleent gastvrijheid", type: "Basisdeel Hospitality (Alle Niveaus)",
+      complexiteit: "De complexiteit wordt bepaald door de wens van de gast; deze staat centraal. Moet om kunnen gaan met culturen en onvoorspelbaarheid.",
+      verantwoordelijkheid: "De beginnend beroepsbeoefenaar is verantwoordelijk voor de kwaliteit en het zelfstandig uitvoeren van de eigen taken.",
+      vakkennis: ["Basiskennis van het verloop van de guest journey[cite: 1].", "Basiskennis van omgangsvormen[cite: 1]."],
+      werkprocessen: [
+        { code: "B1-K1-W1", titel: "Bereidt gastgerichte werkzaamheden voor", omschrijving: "Verdiept zich in de bedrijfsformule en het gastvrijheidsconcept, het commerciële aanbod van het bedrijf en de guest journey[cite: 1].", resultaat: "De werkzaamheden zijn afgestemd, gepland en organisatorisch en praktisch voorbereid, in lijn met de bedrijfsformule[cite: 1].", gedrag: ["Verzamelt actief informatie over het bedrijf, de werkuitvoering en de gasten[cite: 1];", "Plant de werkzaamheden in een logische volgorde[cite: 1];", "Ziet er representatief uit[cite: 1];"], competenties: ["Samenwerken en overleggen", "Plannen en organiseren"] },
+        { code: "B1-K1-W2", titel: "Draagt bij aan een gastgerichte beleving", omschrijving: "Observeert de gast(en), toetst de beschikbare informatie en achterhaalt de specifieke wensen, verwachtingen en behoeften[cite: 1].", resultaat: "Er is een bijdrage aan een optimale beleving geleverd, afgestemd op de gast en in lijn met de bedrijfsformule[cite: 1].", gedrag: ["Toont oprechte interesse in gasten en luistert aandachtig[cite: 1];", "Communiceert duidelijk en stemt communicatie af op doel en doelgroep[cite: 1];", "Is vriendelijk en beleefd[cite: 1];"], competenties: ["Aandacht en begrip tonen", "Op de behoeften en verwachtingen van de 'klant' richten"] },
+        { code: "B1-K1-W3", titel: "Draagt bij aan een sociaal en fysiek veilige werkomgeving", omschrijving: "Draagt bij aan een sociaal en fysiek veilige werkomgeving door grenzen aan te geven en anderen met respect te behandelen[cite: 1].", resultaat: "Er is een actieve bijdrage geleverd aan een fysiek en sociaal veilige werkomgeving op de vloer[cite: 1].", gedrag: ["Behandelt anderen met respect op de werkvloer[cite: 1];", "Is alert op en herkent risicogedrag of veiligheidsrisico's op tijd[cite: 1];"], competenties: ["Samenwerken", "Instructies en procedures opvolgen"] },
+        { code: "B1-K1-W4", titel: "Rondt gastgerichte werkzaamheden af", omschrijving: "Ruimt de werkplek op en maakt deze schoon, scheidt afval en vult de voorraden aan voor de volgende shift[cite: 1].", resultaat: "De gastgerichte werkzaamheden zijn operationeel en administratief correct afgerond[cite: 1].", gedrag: ["Ruimt materialen en middelen netjes en milieubewust op[cite: 1];", "Meldt en registreert relevante informatie zorgvuldig[cite: 1];"], competenties: ["Materialen en middelen inzetten", "Formuleren en rapporteren"] },
+        { code: "B1-K1-W5", titel: "Evalueert de (eigen) werkzaamheden", omschrijving: "Verzamelt en bespreekt feedback over het eigen functioneren met collega's en reflecteert op verbeterpunten[cite: 1].", resultaat: "De eigen werkzaamheden zijn geëvalueerd en concrete verbeterpunten zijn geformuleerd[cite: 1].", gedrag: ["Verzamelt actief en doelgericht feedback over het eigen functioneren[cite: 1];", "Formuleert proactief verbeterpunten[cite: 1];"], competenties: ["Samenwerken en overleggen", "Leren"] }
+      ]
+    },
+    "HTL-B1-K2": {
+      code: "B1-K2", titel: "Voert hospitality werkzaamheden uit", type: "Basisdeel Hospitality (Alle Niveaus)",
+      complexiteit: "De beginnend beroepsbeoefenaar werkt volgens een standaardwerkwijze, maar reageert flexibel op drukte en piekmomenten.",
+      verantwoordelijkheid: "Verantwoordelijk voor de operationele kwaliteit van de verleende diensten en transacties.",
+      vakkennis: ["Basiskennis van verbale en non-verbale communicatie[cite: 1].", "Basiskennis van ontruimingsplannen[cite: 1]."],
+      werkprocessen: [
+        { code: "B1-K2-W1", titel: "Verwerkt reserveringen", omschrijving: "De beginnend beroepsbeoefenaar neemt reserveringen aan en verwerkt deze in het systeem[cite: 1].", resultaat: "De reserveringen zijn volgens afspraken verwerkt en relevante informatie is inzichtelijk[cite: 1].", gedrag: ["Inventariseert actief de wensen en bijzonderheden van de gast[cite: 1];", "Controleert en verwerkt alle relevante informatie nauwkeurig[cite: 1];"], competenties: ["Formuleren en rapporteren", "Op de behoeften en verwachtingen van de 'klant' richten"] },
+        { code: "B1-K2-W2", titel: "Ontvangt en neemt afscheid van gasten", omschrijving: "Maakt contact met de gast, begroet ze hartelijk en wijst ze de weg. Vraagt bij vertrek naar de gastervaring[cite: 1].", resultaat: "De gastervaring bij ontvangst en vertrek sluit volledig aan bij de standaarden[cite: 1].", gedrag: ["Is vriendelijk, hartelijk en geduldig tegenover gasten[cite: 1];"], competenties: ["Aandacht en begrip tonen", "Op de behoeften en verwachtingen van de 'klant' richten"] },
+        { code: "B1-K2-W3", titel: "Treedt op als aanspreekpunt", omschrijving: "Staat de gast te woord, beantwoordt allerhande vragen en biedt maatwerkoplossingen of alternatieven[cite: 1].", resultaat: "Er is een passende maatwerkservice geleverd en de gast is aantoonbaar tevreden gesteld[cite: 1].", gedrag: ["Heeft een open, proactieve en oplossingsgerichte houding[cite: 1];"], competenties: ["Beslissen en activiteiten initiëren", "Aandacht en begrip tonen"] },
+        { code: "B1-K2-W4", titel: "Handelt bij incidenten of calamiteiten", omschrijving: "Maakt bij acute situaties een inschatting, verleent hulp en volgt strikt de veiligheidsprotocollen[cite: 1].", resultaat: "Calamiteiten zijn direct en ordelijk beheerst met minimale risico's[cite: 1].", gedrag: ["Blijft kalm en gefocust in stressvolle of gevaarlijke situaties[cite: 1];"], competenties: ["Met druk en tegenslag omgaan", "Instructies en procedures opvolgen"] },
+        { code: "B1-K2-W5", titel: "Verkoopt of verhuurt producten en/of diensten", omschrijving: "Bespreekt de keuzemogelijkheden, denkt commercieel mee met de gast, geeft tips en suggesties[cite: 1].", resultaat: "Producten en additionele diensten zijn succesvol verkocht en verwerkt[cite: 1].", gedrag: ["Ziet en benut commerciële kansen effectief[cite: 1];"], competenties: ["Ondernemend en commercieel handelen", "Op de behoeften en verwachtingen van de 'klant' richten"] }
+      ]
+    },
+    "HTL-P1-K1": {
+      code: "P1-K1", titel: "Bedient gasten", type: "Profieldeel Medewerker Hospitality (Niveau 2)",
+      complexiteit: "Werkt over het algemeen volgens vaste standaarden, maar stemt de omgangsvormen soepel af op internationale groepen.",
+      verantwoordelijkheid: "Uitvoerende verantwoordelijkheid voor de tafelservice en formulegetrouwe productpresentatie.",
+      vakkennis: ["Basiskennis van allergenen en hygiënevoorschriften[cite: 1].", "Etiquette en serveertechnieken[cite: 1]."],
+      werkprocessen: [
+        { code: "P1-K1-W1", titel: "Neemt bestellingen op en informeert", omschrijving: "Neemt bestellingen op, informeert bij de gast naar speciale wensen en legt deze vast[cite: 1].", resultaat: "Gasten zijn geïnformeerd over het bedrijfsconcept, de diverse dranken en gerechten[cite: 1].", gedrag: ["Presenteert het aanbod op adequate wijze[cite: 1];", "Luistert nauwkeurig naar wat de gast zegt[cite: 1];"], competenties: ["Presenteren", "Aandacht en begrip tonen"] },
+        { code: "P1-K1-W2", titel: "Maakt bestellingen klaar", omschrijving: "Bereidt koude en/of warme dranken (zoals koffievarianten) en maakt deze serveergereed[cite: 1].", resultaat: "Bestelde dranken zijn volgens voorschriften en verhoudingen klaargemaakt[cite: 1].", gedrag: ["Verwerkt een bestelling bedreven en accuraat[cite: 1];", "Kiest de juiste presentatiemethode[cite: 1];"], competenties: ["Vakdeskundigheid toepassen", "Formuleren en rapporteren"] },
+        { code: "P1-K1-W3", titel: "Serveert bestellingen", omschrijving: "Dekt de tafel in en serveert de bestelling uit. Controleert of gerechten aan tafel afgemaakt moeten worden[cite: 1].", resultaat: "De bestelling is correct aan tafel uitgeserveerd en debarrasseren gebeurt tijdig[cite: 1].", gedrag: ["Serveert de producten met een goede oog-hand coördinatie[cite: 1];", "Checkt regelmatig of gasten tevreden zijn[cite: 1];"], competenties: ["Vakdeskundigheid toepassen", "Samenwerken en overleggen"] },
+        { code: "P1-K1-W4", titel: "Werkt mee bij activiteiten en/of evenementen", omschrijving: "Zorgt voor het inrichten, opstellen en aankleden van de ruimte volgens de planning en het event[cite: 1].", resultaat: "De evenementenruimte is ingericht en na afloop conform planning opgeruimd[cite: 1].", gedrag: ["Volgt instructies op en werkt ordelijk[cite: 1];"], competenties: ["Instructies en procedures opvolgen", "Materialen en middelen inzetten"] }
+      ]
+    },
+    "HTL-P2-K1": {
+      code: "P2-K1", titel: "Bedient gasten op specialistisch niveau", type: "Profieldeel Zelfstandig Medewerker Hospitality (Niveau 3)",
+      complexiteit: "Moet snel schakelen tussen verschillende service- en adviesstijlen afhankelijk van gastwensen.",
+      verantwoordelijkheid: "Verantwoordelijk voor de operationele gasttevredenheid en het instrueren van hospitality-assistenten.",
+      vakkennis: ["Diepgaande smaakprofielen en drank-spijscombinaties[cite: 2].", "Sociaal-hygiënisch beleid[cite: 2]."],
+      werkprocessen: [
+        { code: "P2-K1-W1", titel: "Neemt bestellingen op en adviseert", omschrijving: "Geeft inhoudelijk, gefundeerd advies aan de gast over dranken, menu-opbouw en smaakprofielen[cite: 2].", resultaat: "Gasten zijn passend geadviseerd; storytelling en up-selling zijn toegepast[cite: 2].", gedrag: ["Geeft informatie of advies passend bij de specifieke gast[cite: 2];"], competenties: ["Presenteren", "Aandacht en begrip tonen"] }
+      ]
+    },
+    "HTL-P2-K2": {
+      code: "P2-K2", titel: "Coördineert hospitality werkzaamheden", type: "Profieldeel Zelfstandig Medewerker Hospitality (Niveau 3)",
+      complexiteit: "Overzien van capaciteitsbehoeften op piekmomenten en de samenwerking bewaken.",
+      verantwoordelijkheid: "Medeverantwoordelijk voor het teamresultaat en het dagelijkse voorraadniveau op de werkvloer.",
+      vakkennis: ["Methoden van voorraadbeheer (FIFO)[cite: 2].", "Begeleidings- en motivatiestrategieën[cite: 2]."],
+      werkprocessen: [
+        { code: "P2-K2-W1", titel: "Plant werkzaamheden, en instrueert en begeleidt medewerkers", omschrijving: "Maakt een dagplanning voor de inzet van medewerkers en delegeert operationele taken[cite: 2].", resultaat: "De shift verloopt ordelijk, taken zijn logisch verdeeld en medewerkers gecoacht[cite: 2].", gedrag: ["Geeft heldere uitleg, instructies en constructieve feedback[cite: 2];"], competenties: ["Aansturen", "Begeleiden"] }
+      ]
+    },
+    "HTL-P5-K1": {
+      code: "P5-K1", titel: "Organiseert operationele processen", type: "Profieldeel Leidinggevende Hospitality (Niveau 4)",
+      complexiteit: "Vraagt om het oplossen van unieke operationele vraagstukken die afwijken van standaardprocedures.",
+      verantwoordelijkheid: "Eindverantwoordelijk voor de urenplanning, kwaliteitscontroles en HR-implementatie van de afdeling.",
+      vakkennis: ["Financiële kengetallen en urenadministraties[cite: 3].", "Wettelijke Arbo- en verzuimrichtlijnen[cite: 3]."],
+      werkprocessen: [
+        { code: "P5-K1-W4", titel: "Voert het sociaal-hygiënisch beleid uit", omschrijving: "Deelt het sociaal-hygiënisch beleid met het team en handhaaft protocollen strikt bij incidenten[cite: 3].", resultaat: "Wettelijke Alcoholwet- en hygiënenormen worden op de werkvloer sluitend nageleefd[cite: 3].", gedrag: ["Treedt adequaat en consequent op bij overtredingen[cite: 3];"], competenties: ["Instructies en procedures opvolgen", "Met druk en tegenslag omgaan"] }
+      ]
+    },
+    "HTL-P8-K1": {
+      code: "P8-K1", titel: "Stuurt de onderneming strategisch aan", type: "Profieldeel Ondernemer Hospitality (Niveau 4)",
+      complexiteit: "Inrichten van de complete employee journey en complexe bedrijfseconomische calculaties maken.",
+      verantwoordelijkheid: "Algehele risicoaansprakelijkheid voor de solvabiliteit, winstgevendheid en marktprofilering.",
+      vakkennis: ["Marktanalyse, SWOT en business-modellen[cite: 4].", "Inkoopstrategieën en verdienmodellen[cite: 4]."],
+      werkprocessen: [
+        { code: "P8-K3-W1", titel: "Maakt het business plan", omschrijving: "Formuleert een integraal businessplan inclusief marketing-, HR- en financieel strategisch beleid[cite: 4].", resultaat: "Een onderbouwd en financieel levensvatbaar businessplan is goedgekeurd[cite: 4].", gedrag: ["Werkt alle onderdelen duidelijk, gestructureerd en concreet uit[cite: 4];"], competenties: ["Beslissen en activiteiten initiëren", "Ondernemend en commercieel handelen"] }
+      ]
+    },
+
+    "KEUKEN-B1-K1": {
+      code: "B1-K1", titel: "Bereidt (componenten van) gerechten", type: "Basisdeel Keuken (Alle Niveaus)",
+      complexiteit: "Routinematige en gestandaardiseerde werkzaamheden die onder hoge fysieke druk gelijktijdig plaatsvinden.",
+      verantwoordelijkheid: "Verantwoordelijk voor de eigen keukenpost (partie) en veilige hantering van apparatuur.",
+      vakkennis: ["Basiskennis van kooktechnieken en productietechnieken[cite: 5].", "Wettelijke hygiënerichtlijnen (HACCP)[cite: 5]."],
+      werkprocessen: [
+        { code: "B1-K1-W1", titel: "Maakt mise en place", omschrijving: "Volgt de keukengenerale planning, verzamelt ingrediënten, maakt deze schoon, deelt ze op en weegt ze af[cite: 5].", resultaat: "Alle benodigde componenten zijn gebruiksklaar voor het warme en koude bereidingsproces[cite: 5].", gedrag: ["Past snel, precies en accuraat technieken toe voor de bewerking[cite: 5];"], competenties: ["Vakdeskundigheid toepassen", "Materialen en middelen inzetten"] },
+        { code: "B1-K1-W3", titel: "Bereidt (componenten van) gerechten", omschrijving: "Bereidt componenten van gerechten volgens recept en planning, bewaakt de kwaliteit van het proces[cite: 5].", resultaat: "Componenten en gerechten zijn smaaktechnisch en kwalitatief conform receptuur klaargemaakt[cite: 5].", gedrag: ["Controleert de kwaliteit van het bereide gerecht op basis van kwaliteitseisen[cite: 5];"], competenties: ["Vakdeskundigheid toepassen", "Samenwerken en overleggen"] },
+        { code: "B1-K1-W5", titel: "Maakt schoon en ruimt op", omschrijving: "Reinigt en desinfecteert de eigen werkruimtes, apparaten en materialen. Controleert op gebreken[cite: 5].", resultaat: "De keukenpost is bezemschoon en gedesinfecteerd conform HACCP; derving is geregistreerd[cite: 5].", gedrag: ["Voert afval gescheiden en volgens geldende richtlijnen af[cite: 5];"], competenties: ["Vakdeskundigheid toepassen", "Instructies en procedures opvolgen"] }
+      ]
+    },
+    "KEUKEN-B1-K2": {
+      code: "B1-K2", titel: "Beheert voorraden", type: "Basisdeel Keuken (Alle Niveaus)",
+      complexiteit: "Controleren en registreren van bederfelijke en kwetsbare versproducten.",
+      verantwoordelijkheid: "Zorgen voor een ononderbroken cold-chain en minimalisering van breuk of derving.",
+      vakkennis: ["Wettelijke bewaarcondities en registratiesoftware[cite: 5].", "FIFO- en allergenenregistratie[cite: 5]."],
+      werkprocessen: [
+        { code: "B1-K2-W2", titel: "Ontvangt en controleert bestellingen", omschrijving: "Neemt de levering in ontvangst, controleert de vrachtbon en meet kritische temperaturen[cite: 5].", resultaat: "Goederen zijn gekeurd, afwijkingen gerapporteerd en administratief verwerkt[cite: 5].", gedrag: ["Controleert geleverde producten en ingrediënten secuur[cite: 5];"], competenties: ["Vakdeskundigheid toepassen", "Instructies en procedures opvolgen"] }
+      ]
+    },
+    "KEUKEN-B1-K3": {
+      code: "B1-K3", titel: "Verleent gastvrijheid (Keuken)", type: "Basisdeel Keuken (Alle Niveaus)",
+      complexiteit: "De communicatie tussen keuken en bediening vlekkeloos structureren om vertragingen te voorkomen.",
+      verantwoordelijkheid: "Verantwoordelijk voor een heldere toelichting van productspecificaties en allergenen.",
+      vakkennis: ["Guest journey-structuur in relatie tot de keuken[cite: 5].", "Allergenen-wetgeving[cite: 5]."],
+      werkprocessen: [
+        { code: "B1-K3-W2", titel: "Draagt bij aan een gastgerichte beleving", omschrijving: "Reageert op feedback van gasten en stemt voortdurend af met de bediening voor de optimale timing[cite: 5].", resultaat: "Gasten ervaren een soepel verloop van de maaltijd; klachten zijn direct opgelost[cite: 5].", gedrag: ["Stemt tijdig af met collega's in de eigen en/of aansluitende disciplines[cite: 5];"], competenties: ["Samenwerken en overleggen", "Op de behoeften en verwachtingen van de 'klant' richten"] }
+      ]
+    },
+    "KEUKEN-P3-K1": {
+      code: "P3-K1", titel: "Coördineert en optimaliseert keukenwerkzaamheden", type: "Profieldeel Zelfstandig Werkend Kok (Niveau 3)",
+      complexiteit: "Coördineren van de totale keukenbrigade tijdens piekuren en Arbowetgeving toepassen.",
+      verantwoordelijkheid: "Verantwoordelijk voor de urenbeheersing van junior koks en het up-to-date houden van receptsystemen.",
+      vakkennis: ["Kostenstructuur, foodcost en menuopbouw[cite: 6].", "Coachende vaardigheden op de werkvloer[cite: 6]."],
+      werkprocessen: [
+        { code: "P3-K1-W3", titel: "Vernieuwt en verbetert (componenten van) gerechten", omschrijving: "Draagt creatieve suggesties aan voor de menukaart en test innovatieve smaakcombinaties uit[cite: 6].", resultaat: "Nieuwe recepturen zijn culinair uitgewerkt, getest en vastgelegd in het receptensysteem[cite: 6].", gedrag: ["Komt met creatieve ideeën bij het ontwikkelen van nieuwe gerechten[cite: 6];"], competenties: ["Vakdeskundigheid toepassen", "Creëren en innoveren"] }
+      ]
+    },
+    "KEUKEN-P5-K1": {
+      code: "P5-K1", titel: "Optimaliseert het gastronomische aanbod", type: "Profieldeel Gespecialiseerd Kok (Niveau 4)",
+      complexiteit: "Culinaire trends doorvertalen naar rendabele, hoogwaardige fine-dining concepten.",
+      verantwoordelijkheid: "Verantwoordelijk voor het ontwerpen van menuraamwerken en marge-optimalisatie binnen de partie.",
+      vakkennis: ["Siervakken voor horecapatisserie[cite: 7].", "Kosten-batenanalyse en verkoopstatistieken[cite: 7]."],
+      werkprocessen: [
+        { code: "P5-K2-W3", titel: "Ontwikkelt nieuwe menu's en gerechten", omschrijving: "Ontwikkelt luxe, innovatieve gerechten op basis van seizoens- en lokale ingrediënten[cite: 7].", resultaat: "Vernieuwende menugangen zijn ontworpen, gecalculeerd en operationeel geïmplementeerd[cite: 7].", gedrag: ["Toont creativiteit bij het ontwikkelen van nieuwe gastronomische menu's[cite: 7];"], competenties: ["Vakdeskundigheid toepassen", "Creëren en innoveren"] }
+      ]
+    },
+    "KEUKEN-P6-K1": {
+      code: "P6-K1", titel: "Stuurt de totale operationele keuken aan", type: "Profieldeel Leidinggevende Keuken (Niveau 4)",
+      complexiteit: "Grote keukenprocessen en logistieke stromen sturen op basis van financiële data.",
+      verantwoordelijkheid: "Eindverantwoordelijk voor de keukenbegroting, urenbudgetten en menu-engineering processen.",
+      vakkennis: ["Menu-engineering methodieken[cite: 8].", "Bedrijfseconomische kengetallen (bruto-/nettomarge)[cite: 8]."],
+      werkprocessen: [
+        { code: "P6-K2-W4", titel: "Voert menu-engineering uit", omschrijving: "Analyseert verkoopcijfers en populariteit van gerechten om de winstgevendheid van de kaart te maximaliseren[cite: 8].", resultaat: "Menukaartwijzigingen zijn bedrijfseconomisch onderbouwd en voorgelegd aan de directie[cite: 8].", gedrag: ["Toont financieel bewustzijn bij diens voorstellen voor gerechten[cite: 8];"], competenties: ["Analyseren", "Ondernemend en commercieel handelen"] }
+      ]
+    },
+
+    // GENERIEKE EXAMENEISEN DATA
+    "GEN-NED-2F": {
+      code: "Nederlands 2F", titel: "Referentieniveau 2F", type: "Wettelijke Generieke Eis",
+      complexiteit: "Correcte spelling, grammatica en beroepsspecifieke gesprekstechnieken toepassen.",
+      verantwoordelijkheid: "Zelfstandig begrijpen van vakgerichte documenten en helder communiceren.",
+      vakkennis: ["Grammatica- en spellingsregels.", "Formele e-mailconventies."],
+      werkprocessen: [
+        { code: "NED-2F-1", titel: "Mondelinge en schriftelijke communicatie", omschrijving: "Voert professionele gesprekken met gasten en collega's, stelt korte dervingsrapportages op.", resultaat: "De communicatie is zakelijk begrijpelijk en taalkundig correct uitgevoerd.", gedrag: ["Hanteert correct Nederlands in woord en geschrift;"], competenties: ["Communiceren"] }
+      ]
+    },
+    "GEN-NED-3F": {
+      code: "Nederlands 3F", titel: "Referentieniveau 3F", type: "Wettelijke Generieke Eis (Niveau 4)",
+      complexiteit: "Hanteren van complexe argumentatiestructuren en formele managementrapportages.",
+      verantwoordelijkheid: "Verantwoordelijk voor formele schriftelijke plannen richting directie of leveranciers.",
+      vakkennis: ["Zakelijke rapportagetechnieken.", "Argumentatiemodellen."],
+      werkprocessen: [
+        { code: "NED-3F-1", titel: "Beleidsmatige en formele rapportage", omschrijving: "Formuleert operationele plannen, HR-beleidsvoorstellen en businessplannen in vlekkeloos Nederlands.", resultaat: "Beleidsdocumenten zijn overtuigend, gestructureerd en taalkundig perfect opgeleverd.", gedrag: ["Schrijft logisch gestructureerde, formele documenten;"], competenties: ["Formuleren en rapporteren"] }
+      ]
+    },
+    "GEN-REK-2F": {
+      code: "Rekenen 2F", titel: "Functioneel Rekenen 2F", type: "Wettelijke Generieke Eis",
+      complexiteit: "Toepassen van basisbewerkingen (procenten en metriek stelsel) onder tijdsdruk.",
+      verantwoordelijkheid: "Accuraat omrekenen van recepturen bij wisselende gastaantallen.",
+      vakkennis: ["Procentberekeningen.", "Metriek stelsel (gram, kilo, liter)."],
+      werkprocessen: [
+        { code: "REK-2F-1", titel: "Operationele keukencalculaties", omschrijving: "Berekent gewichten en inkoopvolumes op basis van gestandaardiseerde recepten.", resultaat: "Ingrediënten zijn foutloos afgewogen en omgerekend naar de juiste volumes.", gedrag: ["Voert wegingen en omrekeningen uiterst accuraat uit;"], competenties: ["Nauwkeurig werken"] }
+      ]
+    },
+    "GEN-REK-3F": {
+      code: "Rekenen 3F", titel: "Functioneel Rekenen 3F", type: "Wettelijke Generieke Eis (Niveau 3 & 4)",
+      complexiteit: "Interpreteren van financiële overzichten, kostprijsberekeningen en rendementsdiagrammen.",
+      verantwoordelijkheid: "Bewaken van afdelingsbudgetten en het voorkomen van margeverlies.",
+      vakkennis: ["Margecalculaties (bruto/netto).", "Kostprijsberekeningen (foodcost)."],
+      werkprocessen: [
+        { code: "REK-3F-1", titel: "Bedrijfseconomische analyses", omschrijving: "Analyseert de foodcost, winstmarges en urenadministraties op basis van kengetallen.", resultaat: "Keukenfinanciën zijn sluitend geanalyseerd en verwerkt in rendementsrapportages.", gedrag: ["Trekt logische conclusies uit financiële overzichten;"], competenties: ["Analyseren", "Bedrijfsmatig handelen"] }
+      ]
+    },
+    "GEN-LOB-BUR": {
+      code: "LOB & Burgerschap", titel: "Loopbaan & Burgerschap", type: "Wettelijke Generieke Eis",
+      complexiteit: "Reflecteren op professionele identiteit en handelen naar maatschappelijke duurzaamheidsdoelen.",
+      verantwoordelijkheid: "Actief vormgeven aan het eigen ontwikkelingsplan en CAO-naleving.",
+      vakkennis: ["Arbeidsrecht, CAO en Arbo-richtlijnen.", "Sustainable Development Goals (SDG's)."],
+      werkprocessen: [
+        { code: "LOB-BUR-1", titel: "Vormgeving aan de professionele loopbaan", omschrijving: "Bouwt een BPV-portfolio op, formuleert SMART-leerdoelen en reflecteert op feedback.", resultaat: "Een goedgekeurd portfolio met bewijslast van professionele groei is opgeleverd.", gedrag: ["Toont eigenaarschap over het eigen leerproces;"], competenties: ["Leren"] }
+      ]
+    }
+  }
+};
