@@ -5,6 +5,40 @@ let actieveRol = 'student';
 let matrixIsOpen = false;
 let actiefCurriculumProfielId = '';
 
+function openDocumentViewer(event, documentUrl, titel) {
+  if (event) event.preventDefault();
+
+  const viewer = document.getElementById('document-viewer');
+  const frame = document.getElementById('document-viewer-frame');
+  const title = document.getElementById('document-viewer-title');
+  const external = document.getElementById('document-viewer-external');
+  if (!viewer || !frame || !external) {
+    window.open(documentUrl, '_blank', 'noopener');
+    return;
+  }
+
+  frame.src = documentUrl;
+  external.href = documentUrl;
+  if (title) title.innerText = titel || 'Document';
+  viewer.classList.add('open');
+  viewer.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeDocumentViewer() {
+  const viewer = document.getElementById('document-viewer');
+  const frame = document.getElementById('document-viewer-frame');
+  if (!viewer) return;
+
+  viewer.classList.remove('open');
+  viewer.setAttribute('aria-hidden', 'true');
+  if (frame) frame.src = 'about:blank';
+  document.body.style.overflow = '';
+}
+
+window.addEventListener('keydown', event => {
+  if (event.key === 'Escape') closeDocumentViewer();
+});
 function scrollToPageTop() {
   if (typeof window === 'undefined' || !window.scrollTo) return;
   requestAnimationFrame(() => window.scrollTo({ top: 0, left: 0, behavior: 'auto' }));
@@ -731,7 +765,7 @@ function renderDossierContent() {
   if (actiefDomeinId !== 'generiek' && profiel.pdfLink && profiel.pdfLink !== "") {
     htmlOutput += `
       <div class="download-wrapper">
-        <a href="${profiel.pdfLink}" target="_blank" rel="noopener" class="download-pdf-btn">
+        <a href="${profiel.pdfLink}" class="download-pdf-btn" onclick="openDocumentViewer(event, this.href, 'Kwalificatiedossier - ${profiel.naam}')">
           Open / Download Dossier (PDF)
         </a>
         <button type="button" class="print-bpv-btn" onclick="printBPVChecklist()">
