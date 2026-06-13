@@ -83,7 +83,7 @@ const kwalificatieDossierDatabase = {
     },
     {
       id: "generiek",
-      titel: "Generieke Onderdelen & Keuzedelen",
+      titel: "Generieke onderdelen",
             crebo: "Centrale Exameneisen",
       bronvermelding: "Gebaseerd op de wettelijke generieke exameneisen voor het mbo: Nederlands, rekenen, Engels, Loopbaan en Burgerschap.",
       profielen: [

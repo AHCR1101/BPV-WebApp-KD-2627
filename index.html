@@ -213,37 +213,82 @@
     .landing-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 20px;
+      gap: 18px;
     }
 
     .domein-card {
-      background: var(--white);
-      border: 1px solid var(--albeda-gray);
-      border-top: 4px solid var(--albeda-blue);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      min-height: 240px;
+      background-color: var(--albeda-blue);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      border: 0;
       border-radius: 4px;
-      padding: 25px;
+      padding: 24px;
       cursor: pointer;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 14px 30px rgba(10, 98, 175, 0.12);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+      isolation: isolate;
     }
 
-    .domein-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(10, 98, 175, 0.08);
-      border-top-color: var(--albeda-orange);
+    .domein-card:nth-child(1) { background-image: url('sfeer-bediening.jpg'); }
+    .domein-card:nth-child(2) { background-image: url('sfeer-keuken.jpg'); }
+    .domein-card:nth-child(3) { background-image: url('sfeer-generiek.jpg'); }
+    .domein-card:nth-child(4) { background-image: url('sfeer-curriculum.jpg'); }
+
+    .domein-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background: linear-gradient(90deg, rgba(10, 98, 175, 0.96), rgba(10, 98, 175, 0.76) 58%, rgba(10, 98, 175, 0.34));
+    }
+
+    .domein-card::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 6px;
+      background: var(--albeda-orange);
+      z-index: 1;
+    }
+
+    .domein-card:hover,
+    .domein-card:focus-visible {
+      transform: translateY(-4px);
+      box-shadow: 0 22px 46px rgba(10, 98, 175, 0.22);
+      filter: saturate(1.04);
+      outline: none;
+    }
+
+    .domein-card h2,
+    .domein-card p {
+      position: relative;
+      z-index: 1;
+      text-align: left;
     }
 
     .domein-card h2 {
-      color: var(--albeda-blue);
-      font-size: 1.25rem;
+      color: var(--white);
+      font-size: 1.28rem;
+      line-height: 1.2;
       margin-bottom: 10px;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.22);
     }
 
     .domein-card p {
-      color: #555555;
-      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.94);
+      font-size: 0.92rem;
+      line-height: 1.45;
+      max-width: none;
     }
-
 
     .curriculum-intro {
       background: var(--white);
@@ -491,6 +536,180 @@
       border-color: var(--albeda-orange);
     }
 
+
+    .dossier-hero {
+      position: relative;
+      overflow: hidden;
+      min-height: 170px;
+      display: grid;
+      align-items: end;
+      margin-bottom: 24px;
+      padding: 26px;
+      color: var(--white);
+      background-color: var(--albeda-blue);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      border-radius: 4px;
+      box-shadow: 0 16px 36px rgba(10, 98, 175, 0.16);
+      isolation: isolate;
+    }
+
+    .dossier-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(90deg, rgba(10, 98, 175, 0.97), rgba(10, 98, 175, 0.78) 58%, rgba(10, 98, 175, 0.34));
+    }
+
+    .dossier-hero.htl { background-image: url('sfeer-bediening.jpg'); }
+    .dossier-hero.keuken { background-image: url('sfeer-keuken.jpg'); }
+    .dossier-hero.generiek { background-image: url('sfeer-generiek.jpg'); }
+
+    .dossier-hero-kicker {
+      display: inline-flex;
+      width: fit-content;
+      margin-bottom: 10px;
+      padding: 5px 10px;
+      color: var(--white);
+      background: var(--albeda-orange);
+      border-radius: 4px;
+      font-size: 0.78rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .dossier-hero h2 {
+      margin: 0 0 8px;
+      font-size: clamp(1.45rem, 3vw, 2.1rem);
+      line-height: 1.15;
+      color: var(--white);
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    }
+
+    .dossier-hero p {
+      max-width: 720px;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.94);
+      line-height: 1.5;
+    }
+
+    .dashboard-controls {
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid rgba(10, 98, 175, 0.14);
+      border-left: 6px solid var(--albeda-orange);
+      box-shadow: 0 10px 26px rgba(10, 98, 175, 0.08);
+    }
+
+    .role-control-label {
+      margin-top: 4px;
+      margin-bottom: 8px;
+    }
+
+    .btn-group {
+      background: #eef6fc;
+      border: 1px solid rgba(10, 98, 175, 0.18);
+      border-radius: 4px;
+      padding: 5px;
+      gap: 5px;
+    }
+
+    .role-btn {
+      border-width: 1px;
+      border-color: transparent;
+      padding: 10px 14px;
+      background-color: transparent;
+      box-shadow: none;
+    }
+
+    .role-btn:hover,
+    .role-btn.active {
+      background-color: var(--albeda-blue);
+      color: var(--white);
+      border-color: var(--albeda-blue);
+    }
+
+    .role-btn.active {
+      box-shadow: 0 8px 18px rgba(10, 98, 175, 0.16);
+    }
+
+    .card-header {
+      background: linear-gradient(90deg, rgba(10, 98, 175, 0.98), rgba(10, 98, 175, 0.86));
+      border-bottom: 0;
+      color: var(--white);
+    }
+
+    .card-header h3 {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      color: var(--white);
+    }
+
+    .kerntaak-code-label,
+    .wp-code-label {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      border-radius: 4px;
+      font-weight: 900;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .kerntaak-code-label {
+      padding: 6px 9px;
+      color: var(--albeda-blue);
+      background: rgba(255, 255, 255, 0.94);
+      font-size: 0.82rem;
+    }
+
+    .kerntaak-title-text {
+      min-width: 0;
+    }
+
+    .badge.part-badge {
+      color: var(--white);
+      background: var(--albeda-orange);
+      border-color: rgba(255, 255, 255, 0.24);
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    .accordion-card .card-header::after {
+      color: var(--white);
+      background: rgba(255, 255, 255, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 4px;
+      padding: 3px 8px;
+    }
+
+    .wp-title {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      color: var(--albeda-dark);
+      line-height: 1.35;
+    }
+
+    .wp-code-label {
+      flex: 0 0 auto;
+      padding: 7px 9px;
+      color: var(--white);
+      background: var(--albeda-blue);
+      font-size: 0.78rem;
+      box-shadow: inset 4px 0 0 var(--albeda-orange);
+    }
+
+    .wp-title-text {
+      min-width: 0;
+      padding-top: 2px;
+    }
+
     /* VERGELIJKINGSMATRIX COMPONENT */
     #matrix-panel {
       display: none;
@@ -547,6 +766,46 @@
       letter-spacing: 0.5px;
     }
 
+    .legal-summary-card p {
+      color: #4a5568;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .legal-requirements-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    .legal-requirement-card {
+      background: var(--white);
+      border: 1px solid var(--albeda-gray);
+      border-left: 6px solid var(--albeda-orange);
+      border-radius: 4px;
+      box-shadow: 0 8px 20px rgba(10, 98, 175, 0.06);
+      padding: 18px;
+    }
+
+    .legal-requirement-card h3 {
+      color: var(--albeda-blue);
+      font-size: 1rem;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .legal-requirement-card p {
+      color: #2d3748;
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    .legal-requirement-card a {
+      color: var(--albeda-blue);
+      font-weight: bold;
+      overflow-wrap: anywhere;
+    }
     .summary-text-block {
       font-size: 0.95rem;
       color: #4a5568;
@@ -846,6 +1105,63 @@
       font-weight: bold;
     }
 
+
+    /* Dossierpagina polish: vaste eindregels zodat oude kaartstijlen dit niet overschrijven. */
+    .card-header {
+      background: linear-gradient(90deg, rgba(10, 98, 175, 0.98), rgba(10, 98, 175, 0.86));
+      border-bottom: 0;
+      color: var(--white);
+    }
+
+    .card-header h3 {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      color: var(--white);
+    }
+
+    .badge.part-badge {
+      color: var(--white);
+      background: var(--albeda-orange);
+      border-color: rgba(255, 255, 255, 0.24);
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    .accordion-card .card-header::after {
+      color: var(--white);
+      background: rgba(255, 255, 255, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 4px;
+      padding: 3px 8px;
+    }
+
+    .wp-title {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      color: var(--albeda-dark);
+      line-height: 1.35;
+    }
+
+    .wp-code-label {
+      flex: 0 0 auto;
+      padding: 7px 9px;
+      color: var(--white);
+      background: var(--albeda-blue);
+      border-radius: 4px;
+      font-size: 0.78rem;
+      font-weight: 900;
+      box-shadow: inset 4px 0 0 var(--albeda-orange);
+    }
+
+    .wp-title-text {
+      min-width: 0;
+      padding-top: 2px;
+    }
+
     /* VIEW SECTIONS FILTER MECHANICS */
     .view-section { display: none; }
     body.student-mode .student-view { display: block; }
@@ -908,19 +1224,122 @@
       .tool-grid { grid-template-columns: 2fr 1fr; }
       .matrix-btn { width: auto; }
     }
+
 
 
+    /* Curriculum in dezelfde look & feel als de dossierpagina */
+    .curriculum-intro {
+      position: relative;
+      overflow: hidden;
+      min-height: 170px;
+      display: grid;
+      align-items: end;
+      padding: 26px;
+      color: var(--white);
+      background-color: var(--albeda-blue);
+      background-image: url('sfeer-curriculum.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      border-left: 0;
+      border-radius: 4px;
+      box-shadow: 0 16px 36px rgba(10, 98, 175, 0.16);
+      isolation: isolate;
+    }
+
+    .curriculum-intro::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background: linear-gradient(90deg, rgba(10, 98, 175, 0.97), rgba(10, 98, 175, 0.78) 58%, rgba(10, 98, 175, 0.34));
+    }
+
+    .curriculum-intro h2,
+    .curriculum-intro p {
+      position: relative;
+      z-index: 1;
+    }
+
+    .curriculum-intro h2 {
+      color: var(--white);
+      font-size: clamp(1.45rem, 3vw, 2.1rem);
+      line-height: 1.15;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    }
+
+    .curriculum-intro p {
+      max-width: 720px;
+      color: rgba(255, 255, 255, 0.94);
+    }
+
+    #curriculum-layer .tool-grid {
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid rgba(10, 98, 175, 0.14);
+      border-left: 6px solid var(--albeda-orange);
+      box-shadow: 0 10px 26px rgba(10, 98, 175, 0.08);
+    }
+
+    .curriculum-year {
+      border: 1px solid rgba(10, 98, 175, 0.14);
+      box-shadow: 0 10px 24px rgba(10, 98, 175, 0.07);
+    }
+
+    .curriculum-year-header {
+      background: linear-gradient(90deg, rgba(10, 98, 175, 0.98), rgba(10, 98, 175, 0.86));
+      border-bottom: 0;
+      color: var(--white);
+    }
+
+    .curriculum-year-header h3 {
+      color: var(--white);
+    }
+
+    .curriculum-year-header::after {
+      color: var(--white);
+      background: rgba(255, 255, 255, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 4px;
+      padding: 3px 8px;
+    }
+
+    .curriculum-period {
+      border-color: rgba(10, 98, 175, 0.14);
+      box-shadow: 0 6px 18px rgba(10, 98, 175, 0.05);
+    }
+
+    .curriculum-period-header {
+      background: #f8fafc;
+      border-left: 5px solid var(--albeda-orange);
+    }
+
+    .curriculum-period-header h4 {
+      color: var(--albeda-blue);
+    }
+
+    .curriculum-period-header:hover,
+    .curriculum-period-header:focus-visible {
+      background: #eef6fc;
+      outline: none;
+    }
+
+    .curriculum-block {
+      border-top: 4px solid var(--albeda-blue);
+      box-shadow: 0 8px 20px rgba(10, 98, 175, 0.06);
+    }
+
+    /* Documentviewer standaard volledig verborgen tot een PDF wordt geopend. */
     .document-viewer {
       position: fixed;
       inset: 0;
       z-index: 9999;
-      display: none;
+      display: none !important;
       background: rgba(15, 23, 42, 0.72);
       padding: 14px;
     }
 
     .document-viewer.open {
-      display: flex;
+      display: flex !important;
       align-items: stretch;
       justify-content: center;
     }
@@ -988,40 +1407,9 @@
       flex: 1;
       background: #f8fafc;
     }
+
+
     @media (max-width: 600px) {
-      header {
-        padding: 28px 0;
-      }
-
-      .header-layout {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 16px;
-      }
-
-      .campaign-title {
-        font-size: 1.8rem;
-        line-height: 1.15;
-      }
-
-      .app-meta-subtitle {
-        font-size: 0.95rem;
-        line-height: 1.35;
-      }
-
-      .albeda-brand-label {
-        border-left: none;
-        padding-left: 0;
-        text-align: left;
-        align-self: flex-start;
-      }
-
-      .albeda-logo {
-        max-width: 108px;
-        padding: 6px;
-      }
-
-
       .document-viewer {
         padding: 0;
       }
@@ -1046,8 +1434,54 @@
         flex: 1;
         text-align: center;
       }
-      .footer-layout, .footer-col { display: block; width: 100%; text-align: left !important; }
-      .footer-col:first-child { margin-bottom: 20px; }
+
+      .footer-layout,
+      .footer-col {
+        display: block;
+        width: 100%;
+        text-align: left !important;
+      }
+
+      .footer-col:first-child {
+        margin-bottom: 20px;
+      }
+    }
+    /* Subtiele interactie voor actieknoppen, passend bij PraktijkKompas. */
+    .matrix-btn,
+    .download-pdf-btn,
+    .print-bpv-btn {
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease, border-color 0.18s ease;
+      box-shadow: 0 8px 18px rgba(10, 98, 175, 0.12);
+    }
+
+    .matrix-btn:hover,
+    .matrix-btn:focus-visible,
+    .download-pdf-btn:hover,
+    .download-pdf-btn:focus-visible,
+    .print-bpv-btn:hover,
+    .print-bpv-btn:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(10, 98, 175, 0.18);
+      outline: none;
+    }
+
+    .matrix-btn:hover,
+    .matrix-btn:focus-visible,
+    .download-pdf-btn:hover,
+    .download-pdf-btn:focus-visible {
+      background-color: #d98200;
+    }
+
+    .print-bpv-btn:hover,
+    .print-bpv-btn:focus-visible {
+      background-color: #084f8d;
+    }
+
+    .matrix-btn:active,
+    .download-pdf-btn:active,
+    .print-bpv-btn:active {
+      transform: translateY(0);
+      box-shadow: 0 8px 18px rgba(10, 98, 175, 0.12);
     }
   </style>
 </head>
@@ -1062,7 +1496,7 @@
             <p id="app-subtitle" class="app-meta-subtitle" data-i18n="appSubtitle">Dossier- & BPV-Kompas Portaal</p>
             <div class="language-switcher" aria-label="Taal kiezen">
               <button type="button" class="language-btn active" id="lang-nl" onclick="switchLanguage('nl')" aria-label="Nederlands" title="Nederlands">
-                <img class="flag-icon" src="vlag-ned.jpeg" alt="">
+                <img class="flag-icon" src="vlag-ned.jpeg?v=20260606-1929" alt="">
               </button>
               <button type="button" class="language-btn" id="lang-en" onclick="switchLanguage('en')" aria-label="English" title="English">
                 <img class="flag-icon" src="vlag-eng.jpeg" alt="">
@@ -1092,19 +1526,19 @@
         </div>
 
         <div class="landing-grid">
-          <div class="domein-card" onclick="openDomeinDashboard('htl')">
+          <div class="domein-card" onclick="openDomeinDashboard('htl')" role="button" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' ') openDomeinDashboard('htl')">
             <h2>Hospitality, Tourism & Leisure</h2>
             <p>Crebo: 23425  Uitstroomprofielen mbo-niveau 2, 3 en 4</p>
           </div>
-          <div class="domein-card" onclick="openDomeinDashboard('keuken')">
+          <div class="domein-card" onclick="openDomeinDashboard('keuken')" role="button" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' ') openDomeinDashboard('keuken')">
             <h2>Keuken & Foodservice</h2>
             <p>Crebo: 23426  Uitstroomprofielen mbo-niveau 2, 3 en 4</p>
           </div>
-          <div class="domein-card" onclick="openDomeinDashboard('generiek')">
-            <h2 data-i18n="genericCardTitle">Generieke Onderdelen & Keuzedelen</h2>
-            <p data-i18n="genericCardText">Wettelijke Exameneisen  Nederlands, Rekenen, LOB & Engels</p>
+          <div class="domein-card" onclick="openDomeinDashboard('generiek')" role="button" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' ') openDomeinDashboard('generiek')">
+            <h2 data-i18n="genericCardTitle">Generieke onderdelen</h2>
+            <p data-i18n="genericCardText">Wettelijke exameneisen Nederlands, rekenen, loopbaan en burgerschap en Engels (niveau 4)</p>
           </div>
-          <div class="domein-card" onclick="openCurriculumDashboard()">
+          <div class="domein-card" onclick="openCurriculumDashboard()" role="button" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' ') openCurriculumDashboard()">
             <h2 data-i18n="curriculumTitle">Curriculum</h2>
             <p data-i18n="curriculumCardText">Leerjaren, onderwijsperiodes en schoolinhoud per opleiding</p>
           </div>
@@ -1144,7 +1578,7 @@
           <input type="text" id="live-search-box" class="search-input" data-i18n-placeholder="searchPlaceholder" placeholder="Live zoeken in dossier (bv. HACCP)..." oninput="executeLiveSearch()">
         </div>
 
-        <div class="tool-grid">
+        <div class="tool-grid dashboard-controls">
           <div class="tool-block">
             <div class="control-label" data-i18n="chooseMbo">Kies MBO-Opleiding / Uitstroom:</div>
             <select id="dropdown-profielen" onchange="switchProfiel(this.value)"></select>
@@ -1161,7 +1595,7 @@
           <div id="matrix-table-render-target"></div>
         </div>
 
-        <div class="control-label" data-i18n="chooseRole">Kies uw rol (Invalshoek):</div>
+        <div class="control-label role-control-label" data-i18n="chooseRole">Kies uw rol (Invalshoek):</div>
         <div class="btn-group">
           <button class="role-btn active" id="btn-student" onclick="switchRoleView('student', this)" data-i18n="roleStudentBtn">Ik ben Student</button>
           <button class="role-btn" onclick="switchRoleView('pleider', this)" data-i18n="roleTrainerBtn">Ik ben Praktijkopleider</button>
@@ -1214,7 +1648,7 @@
     </div>
   </footer>
 
-  <script src="data.js"></script>
-  <script src="app.js"></script>
+  <script src="data.js?v=20260613-0708"></script>
+  <script src="app.js?v=20260613-0708"></script>
 </body>
 </html>

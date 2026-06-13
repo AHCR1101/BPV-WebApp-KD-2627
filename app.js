@@ -16,8 +16,8 @@ const uiTeksten = {
     landingStudent: '<strong>De Student:</strong> Krijgt direct inzicht in het verwachte praktijkgedrag en de guest journey tijdens de stageperiode;',
     landingTrainer: '<strong>De Praktijkopleider:</strong> Ziet in een oogopslag de kerntaken en het concreet op te leveren resultaat op de werkvloer om studenten objectief te kunnen begeleiden;',
     landingTeacher: '<strong>De Docent:</strong> Beschikt over de volledige onderwijskundige structuur, de formele complexiteit en de geverifieerde vakkennis per mbo-niveau.',
-    genericCardTitle: 'Generieke Onderdelen & Keuzedelen',
-    genericCardText: 'Wettelijke Exameneisen Nederlands, Rekenen, LOB & Engels',
+    genericCardTitle: 'Generieke onderdelen',
+    genericCardText: 'Wettelijke exameneisen Nederlands, rekenen, loopbaan en burgerschap en Engels (niveau 4)',
     curriculumTitle: 'Curriculum',
     curriculumCardText: 'Leerjaren, onderwijsperiodes en schoolinhoud per opleiding',
     backMain: 'Terug naar Hoofddomeinen',
@@ -88,7 +88,7 @@ const uiTeksten = {
     landingStudent: '<strong>Student:</strong> Gains immediate insight into the expected professional behaviour and guest journey during work placement;',
     landingTrainer: '<strong>Workplace Trainer:</strong> Sees the core tasks and concrete workplace outcomes at a glance, making student guidance more objective;',
     landingTeacher: '<strong>Teacher:</strong> Has access to the full educational structure, formal complexity and verified professional knowledge for each mbo level.',
-    genericCardTitle: 'General Components & Electives',
+    genericCardTitle: 'General components',
     genericCardText: 'Statutory examination requirements: Dutch, Mathematics, Career Development, Citizenship and English',
     curriculumTitle: 'Curriculum',
     curriculumCardText: 'Academic years, teaching periods and school content by programme',
@@ -168,6 +168,98 @@ function veld(item, naam) {
   if (!item) return '';
   const engelsVeld = `${naam}_en`;
   return actieveTaal === 'en' && item[engelsVeld] ? item[engelsVeld] : (item[naam] || '');
+}
+
+const formeleVertalingenEn = {
+  'De complexiteit wordt bepaald door de wens van de gast; deze staat centraal. Moet om kunnen gaan met culturen en onvoorspelbaarheid.': 'The complexity is determined by the guest\'s wishes, which are central. The student must be able to deal with different cultures and unpredictable situations.',
+  'De beginnend beroepsbeoefenaar werkt volgens een standaardwerkwijze, maar reageert flexibel op drukte en piekmomenten.': 'The beginning professional works according to a standard method, but responds flexibly to busy periods and peak moments.',
+  'Werkt over het algemeen volgens vaste standaarden, maar stemt de omgangsvormen soepel af op internationale groepen.': 'Generally works according to fixed standards, while smoothly adapting communication and manners to international groups.',
+  'Moet snel schakelen tussen verschillende service- en adviesstijlen afhankelijk van gastwensen.': 'Must quickly switch between different service and advisory styles depending on guests\' wishes.',
+  'Overzien van capaciteitsbehoeften op piekmomenten en de samenwerking bewaken.': 'Oversees capacity needs during peak moments and monitors cooperation.',
+  'Vraagt om het oplossen van unieke operationele vraagstukken die afwijken van standaardprocedures.': 'Requires solving unique operational issues that differ from standard procedures.',
+  'Inrichten van de complete employee journey en complexe bedrijfseconomische calculaties maken.': 'Designs the complete employee journey and performs complex business-economic calculations.',
+  'Routinematige en gestandaardiseerde werkzaamheden die onder hoge fysieke druk gelijktijdig plaatsvinden.': 'Routine and standardised activities that take place simultaneously under high physical pressure.',
+  'Controleren en registreren van bederfelijke en kwetsbare versproducten.': 'Checks and records perishable and vulnerable fresh products.',
+  'De communicatie tussen keuken en bediening vlekkeloos structureren om vertragingen te voorkomen.': 'Structures communication between kitchen and service smoothly to prevent delays.',
+  'Coordineren van de totale keukenbrigade tijdens piekuren en Arbowetgeving toepassen.': 'Coordinates the entire kitchen brigade during peak hours and applies occupational health and safety legislation.',
+  'Culinaire trends doorvertalen naar rendabele, hoogwaardige fine-dining concepten.': 'Translates culinary trends into profitable, high-quality fine-dining concepts.',
+  'Grote keukenprocessen en logistieke stromen sturen op basis van financiele data.': 'Manages large kitchen processes and logistical flows based on financial data.',
+  'Correcte spelling, grammatica en beroepsspecifieke gesprekstechnieken toepassen.': 'Applies correct spelling, grammar and profession-specific conversation techniques.',
+  'Hanteren van complexe argumentatiestructuren en formele managementrapportages.': 'Uses complex argumentation structures and formal management reports.',
+  'Toepassen van basisbewerkingen (procenten en metriek stelsel) onder tijdsdruk.': 'Applies basic calculations, such as percentages and the metric system, under time pressure.',
+  'Interpreteren van financiele overzichten, kostprijsberekeningen en rendementsdiagrammen.': 'Interprets financial statements, cost price calculations and profitability diagrams.',
+  'Reflecteren op professionele identiteit en handelen naar maatschappelijke duurzaamheidsdoelen.': 'Reflects on professional identity and acts in line with social sustainability goals.',
+  'De complexiteit volgt uit de beroepssituatie, het mbo-niveau, de mate van zelfstandigheid en de wisselende omstandigheden in de praktijk.': 'The complexity depends on the professional situation, the mbo level, the degree of independence and the changing circumstances in practice.',
+  'De beginnend beroepsbeoefenaar is verantwoordelijk voor de kwaliteit en het zelfstandig uitvoeren van de eigen taken.': 'The beginning professional is responsible for the quality and independent execution of their own tasks.',
+  'Verantwoordelijk voor de operationele kwaliteit van de verleende diensten en transacties.': 'Responsible for the operational quality of the services and transactions provided.',
+  'Uitvoerende verantwoordelijkheid voor de tafelservice en formulegetrouwe productpresentatie.': 'Has operational responsibility for table service and product presentation in line with the business formula.',
+  'Verantwoordelijk voor de operationele gasttevredenheid en het instrueren van hospitality-assistenten.': 'Responsible for operational guest satisfaction and for instructing hospitality assistants.',
+  'Medeverantwoordelijk voor het teamresultaat en het dagelijkse voorraadniveau op de werkvloer.': 'Co-responsible for the team result and the daily stock level on the shop floor.',
+  'Eindverantwoordelijk voor de urenplanning, kwaliteitscontroles en HR-implementatie van de afdeling.': 'Ultimately responsible for staff scheduling, quality checks and HR implementation within the department.',
+  'Algehele risicoaansprakelijkheid voor de solvabiliteit, winstgevendheid en marktprofilering.': 'Has overall risk responsibility for solvency, profitability and market positioning.',
+  'Verantwoordelijk voor de eigen keukenpost (partie) en veilige hantering van apparatuur.': 'Responsible for their own kitchen section and the safe handling of equipment.',
+  'Zorgen voor een ononderbroken cold-chain en minimalisering van breuk of derving.': 'Ensures an uninterrupted cold chain and minimises breakage or waste.',
+  'Verantwoordelijk voor een heldere toelichting van productspecificaties en allergenen.': 'Responsible for clearly explaining product specifications and allergens.',
+  'Verantwoordelijk voor de urenbeheersing van junior koks en het up-to-date houden van receptsystemen.': 'Responsible for managing junior cooks\' working hours and keeping recipe systems up to date.',
+  'Verantwoordelijk voor het ontwerpen van menuraamwerken en marge-optimalisatie binnen de partie.': 'Responsible for designing menu frameworks and optimising margins within the section.',
+  'Eindverantwoordelijk voor de keukenbegroting, urenbudgetten en menu-engineering processen.': 'Ultimately responsible for the kitchen budget, labour budgets and menu engineering processes.',
+  'Zelfstandig begrijpen van vakgerichte documenten en helder communiceren.': 'Independently understands profession-related documents and communicates clearly.',
+  'Verantwoordelijk voor formele schriftelijke plannen richting directie of leveranciers.': 'Responsible for formal written plans for management or suppliers.',
+  'Accuraat omrekenen van recepturen bij wisselende gastaantallen.': 'Accurately recalculates recipes for varying guest numbers.',
+  'Bewaken van afdelingsbudgetten en het voorkomen van margeverlies.': 'Monitors departmental budgets and prevents margin loss.',
+  'Actief vormgeven aan het eigen ontwikkelingsplan en CAO-naleving.': 'Actively shapes their own development plan and complies with collective labour agreement requirements.',
+  'De student is verantwoordelijk voor het zorgvuldig uitvoeren van de werkprocessen binnen de grenzen van de rol en het niveau.': 'The student is responsible for carefully carrying out the work processes within the boundaries of the role and level.',
+  'Verzamelt actief informatie over het bedrijf, de werkuitvoering en de gasten;': 'Actively gathers information about the company, the work activities and the guests;',
+  'Plant de werkzaamheden in een logische volgorde;': 'Plans the work activities in a logical order;',
+  'Ziet er representatief uit;': 'Looks presentable;',
+  'Toont oprechte interesse in gasten en luistert aandachtig;': 'Shows genuine interest in guests and listens attentively;',
+  'Communiceert duidelijk en stemt communicatie af op doel en doelgroep;': 'Communicates clearly and adapts communication to the purpose and target group;',
+  'Is vriendelijk en beleefd;': 'Is friendly and polite;',
+  'Behandelt anderen met respect op de werkvloer;': 'Treats others with respect in the workplace;',
+  'Is alert op en herkent risicogedrag of veiligheidsrisico\'s op tijd;': 'Is alert to risky behaviour or safety risks and recognises them in time;',
+  'Ruimt materialen en middelen netjes en milieubewust op;': 'Tidies up materials and resources neatly and with environmental awareness;',
+  'Meldt en registreert relevante informatie zorgvuldig;': 'Reports and records relevant information carefully;',
+  'Verzamelt actief en doelgericht feedback over het eigen functioneren;': 'Actively and purposefully collects feedback on their own performance;',
+  'Formuleert proactief verbeterpunten;': 'Proactively formulates points for improvement;',
+  'Inventariseert actief de wensen en bijzonderheden van de gast;': 'Actively identifies the guest\'s wishes and specific needs;',
+  'Controleert en verwerkt alle relevante informatie nauwkeurig;': 'Checks and processes all relevant information accurately;',
+  'Is vriendelijk, hartelijk en geduldig tegenover gasten;': 'Is friendly, welcoming and patient with guests;',
+  'Heeft een open, proactieve en oplossingsgerichte houding;': 'Has an open, proactive and solution-oriented attitude;',
+  'Blijft kalm en gefocust in stressvolle of gevaarlijke situaties;': 'Remains calm and focused in stressful or dangerous situations;',
+  'Ziet en benut commerciele kansen effectief;': 'Identifies and uses commercial opportunities effectively;',
+  'Presenteert het aanbod op adequate wijze;': 'Presents the offer appropriately;',
+  'Luistert nauwkeurig naar wat de gast zegt;': 'Listens carefully to what the guest says;',
+  'Verwerkt een bestelling bedreven en accuraat;': 'Processes an order skilfully and accurately;',
+  'Kiest de juiste presentatiemethode;': 'Chooses the appropriate presentation method;',
+  'Serveert de producten met een goede oog-hand coordinatie;': 'Serves the products with good hand-eye coordination;',
+  'Checkt regelmatig of gasten tevreden zijn;': 'Regularly checks whether guests are satisfied;',
+  'Volgt instructies op en werkt ordelijk;': 'Follows instructions and works in an orderly way;',
+  'Geeft informatie of advies passend bij de specifieke gast;': 'Provides information or advice suited to the specific guest;',
+  'Werkt zorgvuldig, gastgericht en volgens geldende procedures;': 'Works carefully, with a guest focus and according to applicable procedures;',
+  'Stemt tijdig af met collega\'s, begeleider of leidinggevende;': 'Coordinates in time with colleagues, supervisor or manager;',
+  'Reflecteert op het resultaat en benoemt verbeterpunten.': 'Reflects on the result and identifies points for improvement.',
+  'Geeft heldere uitleg, instructies en constructieve feedback;': 'Gives clear explanations, instructions and constructive feedback;',
+  'Treedt adequaat en consequent op bij overtredingen;': 'Acts appropriately and consistently when rules are violated;',
+  'Past snel, precies en accuraat technieken toe voor de bewerking;': 'Applies preparation techniques quickly, precisely and accurately;',
+  'Controleert de kwaliteit van het bereide gerecht op basis van kwaliteitseisen;': 'Checks the quality of the prepared dish against quality requirements;',
+  'Voert afval gescheiden en volgens geldende richtlijnen af;': 'Disposes of waste separately and according to applicable guidelines;',
+  'Controleert geleverde producten en ingredienten secuur;': 'Checks delivered products and ingredients carefully;',
+  'Stemt tijdig af met collega\'s in de eigen en/of aansluitende disciplines;': 'Coordinates in time with colleagues in their own and/or related disciplines;',
+  'Komt met creatieve ideeen bij het ontwikkelen van nieuwe gerechten;': 'Contributes creative ideas when developing new dishes;',
+  'Hanteert correct Nederlands in woord en geschrift;': 'Uses correct Dutch in speech and writing;',
+  'Schrijft logisch gestructureerde, formele documenten;': 'Writes logically structured, formal documents;',
+  'Voert wegingen en omrekeningen uiterst accuraat uit;': 'Carries out weighing and conversions with a high degree of accuracy;',
+  'Trekt logische conclusies uit financiele overzichten;': 'Draws logical conclusions from financial statements;',
+  'Toont eigenaarschap over het eigen leerproces;': 'Shows ownership of their own learning process;'
+};
+
+function vertaalFormeleTekst(tekst) {
+  if (actieveTaal !== 'en' || !tekst) return tekst;
+  return formeleVertalingenEn[tekst] || tekst;
+}
+
+function vertaalLijstItems(items) {
+  return (items || []).map(item => vertaalFormeleTekst(item));
 }
 
 function applyLanguageToStaticText() {
@@ -346,6 +438,7 @@ function openDomeinDashboard(domeinId) {
   selectDropdown.value = actiefProfielId;
   document.body.className = 'student-mode';
   resetRolKnoppen();
+  updateDashboardControlsForDomein();
   renderDossierContent();
   scrollToPageTop();
 }
@@ -611,6 +704,69 @@ function getActiefDomeinEnProfiel() {
   const profiel = domein ? domein.profielen.find(p => p.id === actiefProfielId) : null;
   return { domein, profiel };
 }
+const generiekeWettelijkeOnderdelen = {
+  nederlands: {
+    titel: 'Nederlandse taal',
+    tekst: 'Het generieke examenonderdeel Nederlandse taal maakt deel uit van elke kwalificatie in dit kwalificatiedossier. De referentieniveaus en de kwalificatie-eisen voor dit generieke onderdeel zijn opgenomen in bijlage 1 bij het Besluit referentieniveau Nederlandse taal en rekenen. Deze bijlage is te vinden op https://wetten.overheid.nl/BWBR0027879 en vormt integraal onderdeel van het kwalificatiedossier.'
+  },
+  rekenen: {
+    titel: 'Rekenen',
+    tekst: 'Het generieke examenonderdeel rekenen maakt deel uit van elke kwalificatie in dit kwalificatiedossier. De referentieniveaus en de kwalificatie-eisen voor dit generieke onderdeel zijn opgenomen in de bijlagen 2 en 3 bij het Besluit referentieniveaus Nederlandse taal en rekenen. Deze bijlage is te vinden op https://wetten.overheid.nl/BWBR0027879 en vormt integraal onderdeel van het kwalificatiedossier.'
+  },
+  loopbaanBurgerschap: {
+    titel: 'Loopbaan en burgerschap',
+    tekst: 'Het generieke examenonderdeel loopbaan en burgerschap maakt deel uit van elke kwalificatie in dit kwalificatiedossier. De kwalificatie-eisen voor dit generieke onderdeel zijn opgenomen in bijlage 1 bij het Examen- en kwalificatiebesluit beroepsopleidingen WEB. Deze bijlage is te vinden op https://wetten.overheid.nl/BWBR0027963 en vormt integraal onderdeel van het kwalificatiedossier.'
+  },
+  engels: {
+    titel: 'Engels (alleen voor niveau 4)',
+    tekst: 'Het generieke examenonderdeel Engels maakt deel uit van elke kwalificatie op mbo-niveau 4 in dit kwalificatiedossier. De referentieniveaus en de kwalificatie-eisen voor dit generieke onderdeel zijn opgenomen in bijlage 2 bij het Examen- en kwalificatiebesluit beroepsopleidingen WEB. Deze bijlage is te vinden op https://wetten.overheid.nl/BWBR0027963 en vormt integraal onderdeel van het kwalificatiedossier.'
+  }
+};
+
+function linkOverheidsVerwijzingen(tekst) {
+  return tekst.replace(/https:\/\/wetten\.overheid\.nl\/[A-Z0-9]+/g, url => `<a href="${url}" target="_blank" rel="noopener noreferrer">${url}</a>`);
+}
+
+function getGeneriekeOnderdelenVoorProfiel(profiel) {
+  return [
+    generiekeWettelijkeOnderdelen.nederlands,
+    generiekeWettelijkeOnderdelen.rekenen,
+    generiekeWettelijkeOnderdelen.loopbaanBurgerschap,
+    generiekeWettelijkeOnderdelen.engels
+  ];
+}
+
+function renderGeneriekeWettelijkeBepalingen(profiel) {
+  const onderdelen = getGeneriekeOnderdelenVoorProfiel(profiel);
+  return `
+    <div class="summary-card legal-summary-card">
+      <h4>2. Generieke onderdelen</h4>
+      <p>Elke kwalificatie kent - naast (beroepsgerichte) specifieke kwalificatie-eisen - ook generieke kwalificatie-eisen.</p>
+    </div>
+    <div class="legal-requirements-grid">
+      ${onderdelen.map(onderdeel => `
+        <article class="legal-requirement-card">
+          <h3>${onderdeel.titel}</h3>
+          <p>${linkOverheidsVerwijzingen(onderdeel.tekst)}</p>
+        </article>
+      `).join('')}
+    </div>
+  `;
+}
+
+function updateDashboardControlsForDomein() {
+  const isGeneriek = actiefDomeinId === 'generiek';
+  const matrixBtn = document.getElementById('matrix-toggle-btn');
+  const matrixBlock = matrixBtn ? matrixBtn.closest('.tool-block') : null;
+  const matrixPanel = document.getElementById('matrix-panel');
+  const roleLabel = document.querySelector('.role-control-label');
+  const roleButtons = roleLabel ? roleLabel.nextElementSibling : null;
+
+  if (matrixBlock) matrixBlock.style.display = isGeneriek ? 'none' : '';
+  if (matrixPanel) matrixPanel.style.display = 'none';
+  if (roleLabel) roleLabel.style.display = isGeneriek ? 'none' : '';
+  if (roleButtons && roleButtons.classList.contains('btn-group')) roleButtons.style.display = isGeneriek ? 'none' : '';
+}
 
 function updateRolInstructieTekst(rol) {
   const introBox = document.getElementById('role-intro-text');
@@ -622,8 +778,8 @@ function updateRolInstructieTekst(rol) {
 
   if (actiefDomeinId === 'generiek') {
     introBox.innerHTML = `
-      <h3>${t('genericIntroTitle')}</h3>
-      <p>${t('genericIntroText')}</p>
+      <h3>Wettelijke generieke onderdelen</h3>
+      <p>De generieke onderdelen zijn door de landelijke overheid geformuleerd. De onderstaande bepalingen zijn letterlijk overgenomen uit de kwalificatiedossiers en verwijzen naar de wettelijke bronnen op overheid.nl.</p>
     `;
     return;
   }
@@ -701,13 +857,13 @@ function genereerMatrixTabel() {
   if (!target) return;
   const domein = kwalificatieDossierDatabase.domeinen.find(d => d.id === actiefDomeinId);
   
-  let tabelHtml = `<table class="matrix-table"><thead><tr><th>MBO Uitstroomprofiel</th><th>Complexiteitsniveau (KD)</th><th>Verantwoordelijkheidsgrens</th></tr></thead><tbody>`;
+  let tabelHtml = `<table class="matrix-table"><thead><tr><th>${t('matrixProfile')}</th><th>${t('matrixComplexity')}</th><th>${t('matrixResponsibility')}</th></tr></thead><tbody>`;
   domein.profielen.forEach(p => {
     const kerntaakSleutels = kwalificatieDossierDatabase.profielKerntaken[p.id] || [];
     const eersteSleutel = kerntaakSleutels[0];
     const taakData = kwalificatieDossierDatabase.kerntakenDatabase[eersteSleutel];
-    const complexiteit = taakData ? taakData.complexiteit : "Zie de specifieke kerntaken hieronder.";
-    const verantwoordelijkheid = taakData ? taakData.verantwoordelijkheid : "Zie de specifieke verantwoordelijkheden.";
+    const complexiteit = taakData ? vertaalFormeleTekst(taakData.complexiteit) : t('seeTasks');
+    const verantwoordelijkheid = taakData ? vertaalFormeleTekst(taakData.verantwoordelijkheid) : t('seeResponsibilities');
     tabelHtml += `<tr><td><strong>${p.naam}</strong><br><small>${p.niveau} (Crebo ${p.crebo})</small></td><td>${complexiteit}</td><td>${verantwoordelijkheid}</td></tr>`;
   });
   tabelHtml += `</tbody></table>`;
@@ -849,6 +1005,23 @@ function prepareAccordions() {
 }
 
 
+function krijgDomeinHeroTekst(domein, profiel) {
+  const profielNaam = profiel ? veld(profiel, 'naam') : '';
+  if (actieveTaal === 'en') {
+    if (domein.id === 'generiek') return 'Legal general examination requirements, organised by mbo level.';
+    return `Explore the qualification dossier, work processes and work placement focus for ${profielNaam}.`;
+  }
+  if (domein.id === 'generiek') return 'Wettelijke generieke exameneisen overzichtelijk bij elkaar per mbo-niveau.';
+  return `Bekijk het kwalificatiedossier, de werkprocessen en de BPV-focus voor ${profielNaam}.`;
+}
+
+function krijgKerntaakSoortLabel(kerntaak) {
+  const tekst = `${kerntaak.code || ''} ${kerntaak.type || ''}`.toLowerCase();
+  if (tekst.includes('basisdeel') || tekst.includes('-b') || tekst.startsWith('b')) return actieveTaal === 'en' ? 'Basic component' : 'Basisdeel';
+  if (tekst.includes('profieldeel') || tekst.includes('-p') || tekst.startsWith('p')) return actieveTaal === 'en' ? 'Profile component' : 'Profieldeel';
+  if (actiefDomeinId === 'generiek') return actieveTaal === 'en' ? 'General component' : 'Generiek';
+  return kerntaak.type || '';
+}
 function printBPVChecklist() {
   if (actiefDomeinId === 'generiek') return;
 
@@ -869,6 +1042,23 @@ function renderDossierContent() {
   updateRolInstructieTekst(actieveRol);
 
   let htmlOutput = '';
+  const heroKicker = actiefDomeinId === 'generiek' ? (actieveTaal === 'en' ? 'General requirements' : 'Generieke onderdelen') : (actieveTaal === 'en' ? 'Qualification dossier' : 'Kwalificatiedossier');
+  htmlOutput += `
+    <section class="dossier-hero ${domein.id}">
+      <div>
+        <span class="dossier-hero-kicker">${heroKicker} | Crebo ${domein.crebo}</span>
+        <h2>${veld(domein, 'titel')}</h2>
+        <p>${krijgDomeinHeroTekst(domein, profiel)}</p>
+      </div>
+    </section>
+  `;
+  if (actiefDomeinId === 'generiek') {
+    htmlOutput += renderGeneriekeWettelijkeBepalingen(profiel);
+    targetZone.innerHTML = htmlOutput;
+    executeLiveSearch();
+    return;
+  }
+
   const kerntaakSleutels = kwalificatieDossierDatabase.profielKerntaken[profiel.id] || [];
 
   // SLUITENDE IMPLEMENTATIE: Pakt nu direct de vaste opgemaakte string uit data.js
@@ -917,14 +1107,14 @@ function renderDossierContent() {
       htmlOutput += `
         <div class="card">
           <div class="card-header">
-            <h3>${kerntaak.code}: ${veld(kerntaak, 'titel')}</h3>
-            <span class="badge">${veld(kerntaak, 'type')}</span>
+            <h3><span class="kerntaak-code-label">${kerntaak.code}</span><span class="kerntaak-title-text">${veld(kerntaak, 'titel')}</span></h3>
+            <span class="badge part-badge">${krijgKerntaakSoortLabel(kerntaak)}</span>
           </div>
           <div class="card-body">
             <div class="view-section docent-view">
               <div class="meta-vlak-docent">
-                <p style="margin-bottom: 10px;"><strong>${t('complexity')}</strong> ${veld(kerntaak, 'complexiteit')}</p>
-                <p style="margin-bottom: 10px;"><strong>${t('responsibility')}</strong> ${veld(kerntaak, 'verantwoordelijkheid')}</p>
+                <p style="margin-bottom: 10px;"><strong>${t('complexity')}</strong> ${vertaalFormeleTekst(veld(kerntaak, 'complexiteit'))}</p>
+                <p style="margin-bottom: 10px;"><strong>${t('responsibility')}</strong> ${vertaalFormeleTekst(veld(kerntaak, 'verantwoordelijkheid'))}</p>
                 <strong>${t('knowledge')}</strong>
                 <ul style="margin-left: 15px; margin-top: 5px;">
                   ${kerntaak.vakkennis ? kerntaak.vakkennis.map(kennis => `<li>${kennis}</li>`).join('') : `<li>${t('infoPending')}</li>`}
@@ -933,7 +1123,7 @@ function renderDossierContent() {
             </div>
             ${kerntaak.werkprocessen.map(wp => `
               <div class="wp-block">
-                <div class="wp-title">${wp.code} - ${veld(wp, 'titel')}</div>
+                <div class="wp-title"><span class="wp-code-label">${wp.code}</span><span class="wp-title-text">${veld(wp, 'titel')}</span></div>
                 ${`<p class="wp-summary">${maakKorteWerkprocesToelichting(wp)}</p>`}
                 <div class="view-section student-view">
                   <div class="student-language-card">
@@ -952,7 +1142,7 @@ function renderDossierContent() {
                 <div class="view-section student-view docent-view">
                   <strong style="font-size: 0.9rem; color: var(--albeda-blue); display: block; margin-bottom: 4px;">${t('expectedBehaviour')}</strong>
                   <ul class="check-list">
-                    ${(actieveTaal === 'en' && wp.gedrag_en ? wp.gedrag_en : (wp.gedrag || [])).map(gedragItem => `<li>${gedragItem}</li>`).join('') || `<li>${t('defaultBehaviour')}</li>`}
+                    ${vertaalLijstItems(wp.gedrag || []).map(gedragItem => `<li>${gedragItem}</li>`).join('') || `<li>${t('defaultBehaviour')}</li>`}
                   </ul>
                 </div>
                 <div class="tag-container">
