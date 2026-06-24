@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BPV WebApp AHCR KD 2627</title>
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
   <meta name="theme-color" content="#f58220">
   <meta name="apple-mobile-web-app-title" content="BPV WebApp AHCR KD 2627">
@@ -55,7 +55,7 @@
 
     /* HEADER BLOCK (Achtergrond met kompas.jpg en label aan de paginarand) */
     header {
-      background-image: linear-gradient(rgba(10, 98, 175, 0.8), rgba(10, 98, 175, 0.9)), url('kompas.jpg');
+      background-image: linear-gradient(rgba(10, 98, 175, 0.8), rgba(10, 98, 175, 0.9)), url('assets/kompas.jpg');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -236,10 +236,10 @@
       isolation: isolate;
     }
 
-    .domein-card:nth-child(1) { background-image: url('sfeer-bediening.jpg'); }
-    .domein-card:nth-child(2) { background-image: url('sfeer-keuken.jpg'); }
-    .domein-card:nth-child(3) { background-image: url('sfeer-generiek.jpg'); }
-    .domein-card:nth-child(4) { background-image: url('sfeer-curriculum.jpg'); }
+    .domein-card:nth-child(1) { background-image: url('assets/sfeer-bediening.jpg'); }
+    .domein-card:nth-child(2) { background-image: url('assets/sfeer-keuken.jpg'); }
+    .domein-card:nth-child(3) { background-image: url('assets/sfeer-generiek.jpg'); }
+    .domein-card:nth-child(4) { background-image: url('assets/sfeer-curriculum.jpg'); }
 
     .domein-card::before {
       content: "";
@@ -563,9 +563,9 @@
       background: linear-gradient(90deg, rgba(10, 98, 175, 0.97), rgba(10, 98, 175, 0.78) 58%, rgba(10, 98, 175, 0.34));
     }
 
-    .dossier-hero.htl { background-image: url('sfeer-bediening.jpg'); }
-    .dossier-hero.keuken { background-image: url('sfeer-keuken.jpg'); }
-    .dossier-hero.generiek { background-image: url('sfeer-generiek.jpg'); }
+    .dossier-hero.htl { background-image: url('assets/sfeer-bediening.jpg'); }
+    .dossier-hero.keuken { background-image: url('assets/sfeer-keuken.jpg'); }
+    .dossier-hero.generiek { background-image: url('assets/sfeer-generiek.jpg'); }
 
     .dossier-hero-kicker {
       display: inline-flex;
@@ -1237,7 +1237,7 @@
       padding: 26px;
       color: var(--white);
       background-color: var(--albeda-blue);
-      background-image: url('sfeer-curriculum.jpg');
+      background-image: url('assets/sfeer-curriculum.jpg');
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
@@ -1446,6 +1446,169 @@
         margin-bottom: 20px;
       }
     }
+    .device-popup {
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      display: grid;
+      place-items: center;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.22s ease;
+    }
+
+    .device-popup.is-visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .device-popup-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(8, 31, 51, 0.48);
+      backdrop-filter: blur(4px);
+    }
+
+    .device-popup-card {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(240px, 0.9fr) minmax(280px, 1fr);
+      gap: 0;
+      width: min(860px, 100%);
+      max-height: min(86vh, 680px);
+      overflow: hidden;
+      background: var(--white);
+      border-radius: 8px;
+      box-shadow: 0 24px 70px rgba(8, 31, 51, 0.26);
+    }
+
+    .device-popup-close {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      z-index: 2;
+      display: inline-flex;
+      width: 36px;
+      height: 36px;
+      align-items: center;
+      justify-content: center;
+      color: var(--albeda-blue);
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid rgba(10, 98, 175, 0.18);
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 1.5rem;
+      line-height: 1;
+    }
+
+    .device-popup-close:hover,
+    .device-popup-close:focus-visible {
+      color: var(--white);
+      background: var(--albeda-orange);
+      border-color: var(--albeda-orange);
+      outline: none;
+    }
+
+    .device-popup-media {
+      display: grid;
+      place-items: center;
+      min-height: 320px;
+      padding: 28px;
+      background: linear-gradient(135deg, rgba(10, 98, 175, 0.92), rgba(71, 138, 193, 0.78)), var(--albeda-blue);
+    }
+
+    .device-popup-media img {
+      display: block;
+      width: min(100%, 340px);
+      height: auto;
+      max-height: 420px;
+      object-fit: contain;
+      filter: drop-shadow(0 18px 26px rgba(0, 0, 0, 0.24));
+    }
+
+    .device-popup-copy {
+      display: grid;
+      align-content: center;
+      gap: 12px;
+      padding: 42px 36px 34px;
+    }
+
+    .device-popup-copy .eyebrow {
+      margin: 0;
+      color: var(--albeda-orange);
+      font-size: 0.78rem;
+      font-weight: bold;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .device-popup-copy h2 {
+      margin: 0;
+      color: var(--albeda-blue);
+      font-size: clamp(1.55rem, 3vw, 2.25rem);
+      line-height: 1.08;
+    }
+
+    .device-popup-copy p:not(.eyebrow) {
+      margin: 0;
+      color: #4a5568;
+      font-size: 1rem;
+      line-height: 1.58;
+    }
+
+    .device-popup-action {
+      justify-self: start;
+      min-height: 44px;
+      margin-top: 6px;
+      padding: 10px 16px;
+      color: var(--white);
+      background: var(--albeda-orange);
+      border: 1px solid var(--albeda-orange);
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .device-popup-action:hover,
+    .device-popup-action:focus-visible {
+      background: #d98200;
+      border-color: #d98200;
+      transform: translateY(-1px);
+      outline: none;
+    }
+
+    @media (max-width: 760px) {
+      .device-popup {
+        align-items: end;
+        padding: 12px;
+      }
+
+      .device-popup-card {
+        grid-template-columns: 1fr;
+        max-height: 88vh;
+        overflow-y: auto;
+      }
+
+      .device-popup-media {
+        min-height: 190px;
+        padding: 18px 52px 14px 18px;
+      }
+
+      .device-popup-media img {
+        width: min(100%, 260px);
+        max-height: 210px;
+      }
+
+      .device-popup-copy {
+        padding: 22px 20px 20px;
+      }
+
+      .device-popup-action {
+        width: 100%;
+      }
+    }
     @media (max-width: 640px) {
       header {
         padding: 24px 0;
@@ -1539,15 +1702,15 @@
             <p id="app-subtitle" class="app-meta-subtitle" data-i18n="appSubtitle">Dossier- & BPV-Kompas Portaal</p>
             <div class="language-switcher" aria-label="Taal kiezen">
               <button type="button" class="language-btn active" id="lang-nl" onclick="switchLanguage('nl')" aria-label="Nederlands" title="Nederlands">
-                <img class="flag-icon" src="vlag-ned.jpeg?v=20260606-1929" alt="">
+                <img class="flag-icon" src="assets/vlag-ned.jpeg?v=20260606-1929" alt="">
               </button>
               <button type="button" class="language-btn" id="lang-en" onclick="switchLanguage('en')" aria-label="English" title="English">
-                <img class="flag-icon" src="vlag-eng.jpeg" alt="">
+                <img class="flag-icon" src="assets/vlag-eng.jpeg" alt="">
               </button>
             </div>
           </div>
           <div class="albeda-brand-label">
-            <img class="albeda-logo" src="LOGO.jpg" alt="Albeda Horecacollege logo">
+            <img class="albeda-logo" src="assets/LOGO.jpg" alt="Albeda Horecacollege logo">
           </div>
         </div>
       </div>
@@ -1655,6 +1818,21 @@
     </div>
   </div>
 
+  <div class="device-popup" id="devicePopup" aria-hidden="true">
+    <div class="device-popup-backdrop" data-device-popup-close></div>
+    <aside class="device-popup-card" role="dialog" aria-modal="true" aria-labelledby="devicePopupTitle">
+      <button class="device-popup-close" type="button" aria-label="Sluit melding" data-device-popup-close>&times;</button>
+      <div class="device-popup-media">
+        <img src="assets/mockup_webapp.png" alt="BPV WebApp AHCR KD 2627 op verschillende apparaten">
+      </div>
+      <div class="device-popup-copy">
+        <p class="eyebrow" data-i18n="devicePopupEyebrow">Altijd bij de hand</p>
+        <h2 id="devicePopupTitle" data-i18n="devicePopupTitle">Gebruik de BPV WebApp op elk device</h2>
+        <p data-i18n="devicePopupText">BPV WebApp AHCR KD 2627 werkt op desktop, tablet en mobiel. Zo heb je kwalificatiedossiers, werkprocessen, BPV-checklists en curriculum snel bij de hand.</p>
+        <button class="device-popup-action" type="button" data-device-popup-close data-i18n="devicePopupButton">Ik begrijp het</button>
+      </div>
+    </aside>
+  </div>
   <div id="document-viewer" class="document-viewer" aria-hidden="true">
     <div class="document-viewer-panel" role="dialog" aria-modal="true" aria-labelledby="document-viewer-title">
       <div class="document-viewer-bar">
@@ -1691,7 +1869,7 @@
     </div>
   </footer>
 
-  <script src="data.js?v=20260613-0708"></script>
-  <script src="app.js?v=20260613-0708"></script>
+  <script src="data.js?v=20260624-0745"></script>
+  <script src="app.js?v=20260624-0745"></script>
 </body>
 </html>

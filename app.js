@@ -39,6 +39,10 @@ const uiTeksten = {
     footerInfoTitle: 'Disclaimer & Info',
     footerDisclaimer: 'Dit portaal dient ter ondersteuning van studenten, docenten en praktijkopleiders tijdens de beroepspraktijkvorming (BPV). De getoonde kerntaken en geverifieerde werkprocessen zijn gebaseerd op de formele, landelijk vastgestelde kwalificatiedossiers.',
     footerRights: 'Cees van den Heuvel. Alle rechten voorbehouden.',
+    devicePopupEyebrow: 'Altijd bij de hand',
+    devicePopupTitle: 'Gebruik de BPV WebApp op elk device',
+    devicePopupText: 'BPV WebApp AHCR KD 2627 werkt op desktop, tablet en mobiel. Zo heb je kwalificatiedossiers, werkprocessen, BPV-checklists en curriculum snel bij de hand.',
+    devicePopupButton: 'Ik begrijp het',
     genericIntroTitle: 'Generieke onderdelen',
     genericIntroText: 'Hier staan de wettelijke generieke eisen voor het gekozen mbo-niveau. Deze onderdelen horen bij diplomering, maar zijn geen BPV-checklist voor de beroepspraktijk.',
     studentSummaryTitle: 'Jouw stage in gewone taal',
@@ -111,6 +115,10 @@ const uiTeksten = {
     footerInfoTitle: 'Disclaimer & Information',
     footerDisclaimer: 'This portal supports students, teachers and workplace trainers during work placement. The core tasks and verified work processes shown are based on the formal, nationally established qualification dossiers.',
     footerRights: 'Cees van den Heuvel. All rights reserved.',
+    devicePopupEyebrow: 'Always at hand',
+    devicePopupTitle: 'Use the BPV WebApp on any device',
+    devicePopupText: 'BPV WebApp AHCR KD 2627 works on desktop, tablet and mobile. This keeps qualification dossiers, work processes, BPV checklists and curriculum close at hand.',
+    devicePopupButton: 'Got it',
     genericIntroTitle: 'General components',
     genericIntroText: 'This section shows the statutory general requirements for the selected mbo level. These components are part of qualification, but they are not a work placement checklist for professional practice.',
     studentSummaryTitle: 'Your work placement in plain language',
@@ -1160,11 +1168,39 @@ function renderDossierContent() {
   executeLiveSearch();
 }
 
+function initDevicePopup() {
+  const popup = document.querySelector('#devicePopup');
+  if (!popup) return;
+
+  let dismissedDuringThisVisit = false;
+  localStorage.removeItem('bpvWebAppDevicePopupDismissed');
+
+  const closePopup = () => {
+    dismissedDuringThisVisit = true;
+    popup.classList.remove('is-visible');
+    popup.setAttribute('aria-hidden', 'true');
+  };
+
+  popup.querySelectorAll('[data-device-popup-close]').forEach((element) => {
+    element.addEventListener('click', closePopup);
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && popup.classList.contains('is-visible')) closePopup();
+  });
+
+  window.setTimeout(() => {
+    if (dismissedDuringThisVisit) return;
+    popup.classList.add('is-visible');
+    popup.setAttribute('aria-hidden', 'false');
+  }, 3000);
+}
 
 if (typeof document !== 'undefined') {
   document.addEventListener('DOMContentLoaded', () => {
     applyLanguageToStaticText();
     const footerYear = document.getElementById('footer-year');
     if (footerYear) footerYear.innerText = new Date().getFullYear();
+    initDevicePopup();
   });
 }
