@@ -745,6 +745,12 @@
       background-color: var(--albeda-blue);
       color: var(--white);
     }
+    .profile-kd-label {
+      margin: -4px 0 12px;
+      color: var(--albeda-blue);
+      font-weight: 700;
+      line-height: 1.35;
+    }
 
     /* FIXEDsamenvatting CARD VIA VASTE STRING */
     .summary-card {
@@ -1274,6 +1280,8 @@
     }
 
     #curriculum-layer .tool-grid {
+      grid-template-columns: 1fr;
+      width: 100%;
       background: rgba(255, 255, 255, 0.92);
       border: 1px solid rgba(10, 98, 175, 0.14);
       border-left: 6px solid var(--albeda-orange);
@@ -1326,6 +1334,26 @@
     .curriculum-block {
       border-top: 4px solid var(--albeda-blue);
       box-shadow: 0 8px 20px rgba(10, 98, 175, 0.06);
+    }
+    .dashboard-controls {
+      grid-template-columns: minmax(0, 3fr) minmax(260px, 1fr);
+      align-items: end;
+    }
+
+    .dashboard-controls .tool-block:first-child {
+      min-width: 0;
+    }
+
+    #curriculum-layer .tool-block {
+      width: 100%;
+      min-width: 0;
+    }
+
+    #dropdown-profielen,
+    #dropdown-curriculum-profielen {
+      min-height: 48px;
+      font-size: 0.92rem;
+      line-height: 1.25;
     }
 
     /* Documentviewer standaard volledig verborgen tot een PDF wordt geopend. */
@@ -1699,7 +1727,7 @@
         <div class="header-layout">
           <div class="header-content">
             <h1 class="campaign-title">Albeda <span>Horecacollege</span></h1>
-            <p id="app-subtitle" class="app-meta-subtitle" data-i18n="appSubtitle">Dossier- & BPV-Kompas Portaal</p>
+            <p id="app-subtitle" class="app-meta-subtitle" data-i18n="appSubtitle">Nieuw kwalificatiedossier | Dossier- & BPV-Kompas Portaal</p>
             <div class="language-switcher" aria-label="Taal kiezen">
               <button type="button" class="language-btn active" id="lang-nl" onclick="switchLanguage('nl')" aria-label="Nederlands" title="Nederlands">
                 <img class="flag-icon" src="assets/vlag-ned.jpeg?v=20260606-1929" alt="">
@@ -1761,7 +1789,12 @@
 
         <div class="curriculum-intro">
           <h2 data-i18n="curriculumTitle">Curriculum</h2>
-          <p data-i18n="curriculumIntro">Kies een opleiding en bekijk per leerjaar en onderwijsperiode welke thema's, vaardigheden en gekoppelde werkprocessen centraal staan op school.</p>
+          <p data-i18n="curriculumIntro">Deze curriculum pagina is onder constructie. De inhoud wordt nog verder aangevuld en aangescherpt.</p>
+        </div>
+
+        <div class="curriculum-construction-notice">
+          <strong data-i18n="curriculumConstructionTitle">Onder constructie</strong>
+          <p data-i18n="curriculumConstructionText">We werken nog aan de definitieve curriculumopbouw per opleiding, leerjaar en onderwijsperiode.</p>
         </div>
 
         <div class="tool-grid">
@@ -1869,7 +1902,20 @@
     </div>
   </footer>
 
-  <script src="data.js?v=20260624-0745"></script>
-  <script src="app.js?v=20260624-0745"></script>
+  <script src="data.js?v=20260827-opleiding-hoofdletters"></script>
+  <script src="app.js?v=20260827-opleiding-hoofdletters"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+

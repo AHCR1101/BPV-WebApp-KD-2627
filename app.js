@@ -9,8 +9,8 @@ let actieveTaal = localStorage.getItem('ahcrLanguage') || 'nl';
 
 const uiTeksten = {
   nl: {
-    appSubtitle: 'Dossier- & BPV-Kompas Portaal',
-    curriculumSubtitle: 'Curriculum per opleiding',
+    appSubtitle: 'Nieuw kwalificatiedossier | Dossier- & BPV-Kompas Portaal',
+    curriculumSubtitle: 'Nieuw kwalificatiedossier | Curriculum per opleiding',
     landingTitle: 'Welkom bij het Onderwijs- & Kwalificatieportaal',
     landingIntro: 'Dit interactieve portaal is speciaal ontwikkeld voor de modernisering van de horeca-opleidingen binnen het Albeda Horecacollege. Selecteer hieronder een van de hoofddomeinen of verplichte examenvakken om te starten:',
     landingStudent: '<strong>De Student:</strong> Krijgt direct inzicht in het verwachte praktijkgedrag en de guest journey tijdens de stageperiode;',
@@ -21,7 +21,9 @@ const uiTeksten = {
     curriculumTitle: 'Curriculum',
     curriculumCardText: 'Leerjaren, onderwijsperiodes en schoolinhoud per opleiding',
     backMain: 'Terug naar Hoofddomeinen',
-    curriculumIntro: 'Kies een opleiding en bekijk per leerjaar en onderwijsperiode welke thema\'s, vaardigheden en gekoppelde werkprocessen centraal staan op school.',
+    curriculumIntro: 'Deze curriculum pagina is onder constructie. De inhoud wordt nog verder aangevuld en aangescherpt.',
+    curriculumConstructionTitle: 'Onder constructie',
+    curriculumConstructionText: 'We werken nog aan de definitieve curriculumopbouw per opleiding, leerjaar en onderwijsperiode.',
     chooseProgramme: 'Kies opleiding:',
     searchPlaceholder: 'Live zoeken in dossier (bv. HACCP)...',
     chooseMbo: 'Kies MBO-Opleiding / Uitstroom:',
@@ -46,11 +48,11 @@ const uiTeksten = {
     genericIntroTitle: 'Generieke onderdelen',
     genericIntroText: 'Hier staan de wettelijke generieke eisen voor het gekozen mbo-niveau. Deze onderdelen horen bij diplomering, maar zijn geen BPV-checklist voor de beroepspraktijk.',
     studentSummaryTitle: 'Jouw stage in gewone taal',
-    studentSummaryText: 'Je bekijkt nu {profile} ({level}). Open een basisdeel of profieldeel en kijk per werkproces wat je concreet op stage moet laten zien. Gebruik dit als kompas voor je gedrag, je bewijs en je gesprek met je praktijkopleider.',
+    studentSummaryText: 'Je bekijkt nu {profile}. Open een basisdeel of profieldeel en kijk per werkproces wat je concreet op stage moet laten zien. Gebruik dit als kompas voor je gedrag, je bewijs en je gesprek met je praktijkopleider.',
     trainerSummaryTitle: 'Begeleiden en observeren op de werkvloer',
-    trainerSummaryText: 'U bekijkt nu {profile} ({level}). De werkprocessen helpen om gericht te observeren wat de student uitvoert, hoe zelfstandig dat gebeurt en welk resultaat zichtbaar wordt in de praktijk.',
+    trainerSummaryText: 'U bekijkt nu {profile}. De werkprocessen helpen om gericht te observeren wat de student uitvoert, hoe zelfstandig dat gebeurt en welk resultaat zichtbaar wordt in de praktijk.',
     teacherSummaryTitle: 'Onderwijskundige structuur en dossiercontrole',
-    teacherSummaryText: 'U bekijkt nu {profile} ({level}). De basisdelen en profieldelen tonen de formele KD-structuur met werkprocessen, complexiteit, verantwoordelijkheid en vakkennis.',
+    teacherSummaryText: 'U bekijkt nu {profile}. De basisdelen en profieldelen tonen de formele KD-structuur met werkprocessen, complexiteit, verantwoordelijkheid en vakkennis.',
     studentBlocks: [['Wat moet ik doen?', 'Lees per werkproces welke taak centraal staat en welk gedrag daarbij hoort.'], ['Wat kan ik verzamelen?', 'Denk aan foto\'s, feedback, observaties, producten, planningen of korte reflecties.'], ['Wanneer is het goed?', 'Als je kunt uitleggen wat je deed, waarom je dat deed en welk resultaat dat opleverde.']],
     trainerBlocks: [['Waar let ik op?', 'Observeer concreet gedrag, vakmatige uitvoering, samenwerking en gastgerichtheid.'], ['Wat bespreek ik?', 'Koppel feedback aan het werkproces en benoem wat al lukt en wat de volgende stap is.'], ['Wat is bewijs?', 'Gebruik praktijkvoorbeelden, producten, observaties en feedbackmomenten als onderbouwing.']],
     teacherBlocks: [['Structuur', 'Controleer de samenhang tussen basisdeel, profieldeel en werkprocessen.'], ['Duiding', 'Gebruik complexiteit en verantwoordelijkheid om niveauverschillen te bespreken.'], ['Begeleiding', 'Verbind de formele eisen aan onderwijsactiviteiten, BPV-opdrachten en beoordeling.']],
@@ -70,7 +72,7 @@ const uiTeksten = {
     defaultResult: 'Het werkproces is aantoonbaar uitgevoerd volgens het kwalificatiedossier.',
     expectedBehaviour: 'Verwacht gedrag (Hoe laat je dit zien op stage):',
     defaultBehaviour: 'Laat zien dat je dit werkproces zorgvuldig en beroepsgericht uitvoert.',
-    domainSubtitle: 'Domein: {domain} | Crebo Dossier {crebo}',
+    domainSubtitle: 'Nieuw kwalificatiedossier | Domein: {domain} | Crebo Dossier {crebo}',
     curriculumConcept: 'Conceptindeling: gebruik dit als basis om het actuele onderwijsprogramma per periode verder te vullen of aan te scherpen.',
     schoolContent: 'Op school behandeld',
     workprocessLink: 'Koppeling met werkprocessen',
@@ -85,8 +87,8 @@ const uiTeksten = {
     seeResponsibilities: 'Zie de specifieke verantwoordelijkheden.'
   },
   en: {
-    appSubtitle: 'Qualification & Work Placement Compass Portal',
-    curriculumSubtitle: 'Curriculum by programme',
+    appSubtitle: 'New qualification dossier | Qualification & Work Placement Compass Portal',
+    curriculumSubtitle: 'New qualification dossier | Curriculum by programme',
     landingTitle: 'Welcome to the Education & Qualification Portal',
     landingIntro: 'This interactive portal has been developed for the renewed hospitality programmes at Albeda Horecacollege. Select one of the main domains or compulsory examination subjects below to begin:',
     landingStudent: '<strong>Student:</strong> Gains immediate insight into the expected professional behaviour and guest journey during work placement;',
@@ -97,7 +99,9 @@ const uiTeksten = {
     curriculumTitle: 'Curriculum',
     curriculumCardText: 'Academic years, teaching periods and school content by programme',
     backMain: 'Back to Main Domains',
-    curriculumIntro: 'Choose a programme and view the themes, skills and linked work processes covered at school for each academic year and teaching period.',
+    curriculumIntro: 'This curriculum page is under construction. The content will be further completed and refined.',
+    curriculumConstructionTitle: 'Under construction',
+    curriculumConstructionText: 'We are still working on the final curriculum structure for each programme, academic year and teaching period.',
     chooseProgramme: 'Choose programme:',
     searchPlaceholder: 'Search the dossier live (e.g. HACCP)...',
     chooseMbo: 'Choose MBO Programme / Profile:',
@@ -122,11 +126,11 @@ const uiTeksten = {
     genericIntroTitle: 'General components',
     genericIntroText: 'This section shows the statutory general requirements for the selected mbo level. These components are part of qualification, but they are not a work placement checklist for professional practice.',
     studentSummaryTitle: 'Your work placement in plain language',
-    studentSummaryText: 'You are viewing {profile} ({level}). Open a basic component or profile component and check what each work process asks you to demonstrate during work placement. Use this as a compass for your behaviour, your evidence and your conversation with your workplace trainer.',
+    studentSummaryText: 'You are viewing {profile}. Open a basic component or profile component and check what each work process asks you to demonstrate during work placement. Use this as a compass for your behaviour, your evidence and your conversation with your workplace trainer.',
     trainerSummaryTitle: 'Guidance and observation in the workplace',
-    trainerSummaryText: 'You are viewing {profile} ({level}). The work processes help you observe what the student does, how independently they work and what result becomes visible in practice.',
+    trainerSummaryText: 'You are viewing {profile}. The work processes help you observe what the student does, how independently they work and what result becomes visible in practice.',
     teacherSummaryTitle: 'Educational structure and dossier check',
-    teacherSummaryText: 'You are viewing {profile} ({level}). The basic components and profile components show the formal qualification structure with work processes, complexity, responsibility and professional knowledge.',
+    teacherSummaryText: 'You are viewing {profile}. The basic components and profile components show the formal qualification structure with work processes, complexity, responsibility and professional knowledge.',
     studentBlocks: [['What should I do?', 'Read which task is central in each work process and which behaviour is expected.'], ['What can I collect?', 'Think of photos, feedback, observations, products, schedules or short reflections.'], ['When is it good enough?', 'When you can explain what you did, why you did it and what result it produced.']],
     trainerBlocks: [['What should I look for?', 'Observe concrete behaviour, professional execution, cooperation and guest focus.'], ['What should I discuss?', 'Link feedback to the work process and name what already works well and what the next step is.'], ['What counts as evidence?', 'Use practical examples, products, observations and feedback moments as evidence.']],
     teacherBlocks: [['Structure', 'Check the coherence between basic components, profile components and work processes.'], ['Interpretation', 'Use complexity and responsibility to discuss differences between levels.'], ['Guidance', 'Connect the formal requirements to learning activities, work placement assignments and assessment.']],
@@ -146,7 +150,7 @@ const uiTeksten = {
     defaultResult: 'The work process has demonstrably been carried out according to the qualification dossier.',
     expectedBehaviour: 'Expected behaviour (how to demonstrate this during work placement):',
     defaultBehaviour: 'Show that you carry out this work process carefully and professionally.',
-    domainSubtitle: 'Domain: {domain} | Crebo Dossier {crebo}',
+    domainSubtitle: 'New qualification dossier | Domain: {domain} | Crebo Dossier {crebo}',
     curriculumConcept: 'Concept structure: use this as a basis for further developing or refining the current programme content by period.',
     schoolContent: 'Covered at school',
     workprocessLink: 'Link to work processes',
@@ -400,6 +404,35 @@ function scrollToPageTop() {
   requestAnimationFrame(() => window.scrollTo({ top: 0, left: 0, behavior: 'auto' }));
 }
 
+function getProfielKeuzelabel(profiel, domeinTitel = '') {
+  const labels = {
+    medewerker_hospitality: 'Hospitality Gastvrijheidstalent (Mbo-niveau 2) | KD Medewerker Hospitality crebo: 27052',
+    zelfstandig_medewerker_hospitality: 'Hospitality Professional (Mbo-niveau 3) | KD Zelfstandig Medewerker Hospitality crebo: 27053',
+    leidinggevende_hospitality: 'Hospitality Manager (Mbo-niveau 4) | KD Leidinggevende Hospitality crebo: 27056',
+    ondernemer_hospitality: 'Hospitality Ondernemer (Mbo-niveau 4) | KD Ondernemer Hospitality crebo: 27059',
+    kok: 'Kok (Mbo-niveau 2) | KD Kok crebo: 27060',
+    zelfstandig_werkend_kok: 'Zelfstandig Werkend Kok (Mbo-niveau 3) | KD Zelfstandig Werkend Kok crebo: 27062',
+    gespecialiseerd_kok: 'Gespecialiseerd Kok (Mbo-niveau 4) | KD Gespecialiseerd Kok crebo: 27064',
+    leidinggevende_keuken: 'Leidinggevende Keuken (Mbo-niveau 4) | KD Leidinggevende Keuken crebo: 27065'
+  };
+
+  const basisLabel = labels[profiel.id] || `${veld(profiel, 'naam')} (${veld(profiel, 'niveau')})`;
+  return domeinTitel ? `${basisLabel} - ${domeinTitel}` : basisLabel;
+}
+function getProfielKdLabel(profiel) {
+  const labels = {
+    medewerker_hospitality: 'Hospitality Gastvrijheidstalent | KD Medewerker Hospitality crebo: 27052',
+    zelfstandig_medewerker_hospitality: 'Hospitality Professional | KD Zelfstandig Medewerker Hospitality crebo: 27053',
+    leidinggevende_hospitality: 'Hospitality Manager | KD Leidinggevende Hospitality crebo: 27056',
+    ondernemer_hospitality: 'Hospitality Ondernemer | KD Ondernemer Hospitality crebo: 27059',
+    kok: 'Kok | KD Kok crebo: 27060',
+    zelfstandig_werkend_kok: 'Zelfstandig Werkend Kok | KD Zelfstandig Werkend Kok crebo: 27062',
+    gespecialiseerd_kok: 'Gespecialiseerd Kok | KD Gespecialiseerd Kok crebo: 27064',
+    leidinggevende_keuken: 'Leidinggevende Keuken | KD Leidinggevende Keuken crebo: 27065'
+  };
+
+  return labels[profiel.id] || `${veld(profiel, 'naam')} | KD ${veld(profiel, 'naam')} crebo: ${profiel.crebo}`;
+}
 function openDomeinDashboard(domeinId) {
   actiefDomeinId = domeinId;
   matrixIsOpen = false;
@@ -427,18 +460,7 @@ function openDomeinDashboard(domeinId) {
   domeinData.profielen.forEach(profiel => {
     const optie = document.createElement('option');
     optie.value = profiel.id;
-    
-    let weergaveNaam = `${veld(profiel, 'naam')} (${veld(profiel, 'niveau')})`;
-    
-    if (profiel.id === 'medewerker_hospitality') {
-      weergaveNaam = `${veld(profiel, 'naam')} (${veld(profiel, 'niveau')}) | Gastvrijheidstalent`;
-    } else if (profiel.id === 'zelfstandig_medewerker_hospitality') {
-      weergaveNaam = `${veld(profiel, 'naam')} (${veld(profiel, 'niveau')}) | Hospitality Medewerker`;
-    } else if (profiel.id === 'leidinggevende_hospitality') {
-      weergaveNaam = `${veld(profiel, 'naam')} (${veld(profiel, 'niveau')}) | Hospitality Manager`;
-    }
-    
-    optie.innerText = weergaveNaam;
+    optie.innerText = getProfielKeuzelabel(profiel);
     selectDropdown.appendChild(optie);
   });
 
@@ -483,7 +505,7 @@ function openCurriculumDashboard() {
   profielen.forEach(item => {
     const optie = document.createElement('option');
     optie.value = item.profiel.id;
-    optie.innerText = `${veld(item.profiel, 'naam')} (${veld(item.profiel, 'niveau')}) - ${item.domeinTitel}`;
+    optie.innerText = getProfielKeuzelabel(item.profiel);
     select.appendChild(optie);
   });
 
@@ -781,8 +803,7 @@ function updateRolInstructieTekst(rol) {
   if (!introBox) return;
 
   const { profiel } = getActiefDomeinEnProfiel();
-  const profielNaam = profiel ? veld(profiel, 'naam') : (actieveTaal === 'en' ? 'this programme' : 'deze opleiding');
-  const niveau = profiel ? veld(profiel, 'niveau') : (actieveTaal === 'en' ? 'the selected level' : 'het gekozen niveau');
+  const profielNaam = profiel ? getProfielKdLabel(profiel) : (actieveTaal === 'en' ? 'this programme' : 'deze opleiding');
 
   if (actiefDomeinId === 'generiek') {
     introBox.innerHTML = `
@@ -795,17 +816,17 @@ function updateRolInstructieTekst(rol) {
   const rolTeksten = {
     student: {
       titel: t('studentSummaryTitle'),
-      tekst: t('studentSummaryText', { profile: profielNaam, level: niveau }),
+      tekst: t('studentSummaryText', { profile: profielNaam }),
       blokken: t('studentBlocks')
     },
     pleider: {
       titel: t('trainerSummaryTitle'),
-      tekst: t('trainerSummaryText', { profile: profielNaam, level: niveau }),
+      tekst: t('trainerSummaryText', { profile: profielNaam }),
       blokken: t('trainerBlocks')
     },
     docent: {
       titel: t('teacherSummaryTitle'),
-      tekst: t('teacherSummaryText', { profile: profielNaam, level: niveau }),
+      tekst: t('teacherSummaryText', { profile: profielNaam }),
       blokken: t('teacherBlocks')
     }
   };
@@ -1014,7 +1035,7 @@ function prepareAccordions() {
 
 
 function krijgDomeinHeroTekst(domein, profiel) {
-  const profielNaam = profiel ? veld(profiel, 'naam') : '';
+  const profielNaam = profiel ? getProfielKdLabel(profiel) : '';
   if (actieveTaal === 'en') {
     if (domein.id === 'generiek') return 'Legal general examination requirements, organised by mbo level.';
     return `Explore the qualification dossier, work processes and work placement focus for ${profielNaam}.`;
@@ -1074,6 +1095,7 @@ function renderDossierContent() {
     htmlOutput += `
       <div class="summary-card">
         <h4>${t('profileSummary')}</h4>
+        <p class="profile-kd-label">${getProfielKdLabel(profiel)}</p>
         <div class="summary-text-block">
           ${veld(profiel, 'samenvatting')}
         </div>
@@ -1204,3 +1226,14 @@ if (typeof document !== 'undefined') {
     initDevicePopup();
   });
 }
+
+
+
+
+
+
+
+
+
+
+
