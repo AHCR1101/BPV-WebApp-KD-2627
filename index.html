@@ -1355,6 +1355,73 @@
       font-size: 0.92rem;
       line-height: 1.25;
     }
+    .curriculum-year-subtitle {
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .curriculum-module-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .curriculum-module-card {
+      background: var(--white);
+      border: 1px solid rgba(10, 98, 175, 0.14);
+      border-left: 5px solid var(--albeda-blue);
+      border-radius: 4px;
+      padding: 14px 16px;
+      box-shadow: 0 6px 16px rgba(10, 98, 175, 0.05);
+    }
+
+    .curriculum-module-card h5 {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 8px;
+      color: var(--albeda-blue);
+      font-size: 1rem;
+      line-height: 1.3;
+    }
+
+    .curriculum-module-number,
+    .curriculum-detail-code {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      padding: 2px 7px;
+      border-radius: 4px;
+      background: #eef6fc;
+      color: var(--albeda-blue);
+      font-weight: 800;
+      font-size: 0.78rem;
+      white-space: nowrap;
+    }
+
+    .curriculum-detail-list {
+      display: grid;
+      gap: 6px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .curriculum-detail-list li {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: baseline;
+      color: #4a5568;
+      font-size: 0.94rem;
+      line-height: 1.45;
+    }
+
+    .curriculum-detail-list small {
+      color: #718096;
+      font-size: 0.78rem;
+    }
 
     /* Documentviewer standaard volledig verborgen tot een PDF wordt geopend. */
     .document-viewer {
@@ -1789,12 +1856,7 @@
 
         <div class="curriculum-intro">
           <h2 data-i18n="curriculumTitle">Curriculum</h2>
-          <p data-i18n="curriculumIntro">Deze curriculum pagina is onder constructie. De inhoud wordt nog verder aangevuld en aangescherpt.</p>
-        </div>
-
-        <div class="curriculum-construction-notice">
-          <strong data-i18n="curriculumConstructionTitle">Onder constructie</strong>
-          <p data-i18n="curriculumConstructionText">We werken nog aan de definitieve curriculumopbouw per opleiding, leerjaar en onderwijsperiode.</p>
+          <p data-i18n="curriculumIntro">Kies een opleiding en bekijk per leerjaar welke modules, generieke onderdelen, examens en gekoppelde werkprocessen centraal staan.</p>
         </div>
 
         <div class="tool-grid">
@@ -1903,9 +1965,11 @@
   </footer>
 
   <script src="data.js?v=20260827-opleiding-hoofdletters"></script>
-  <script src="app.js?v=20260827-opleiding-hoofdletters"></script>
+  <script src="curriculum-data.js?v=20260918-curriculum"></script>
+  <script src="app.js?v=20260918-curriculum"></script>
 </body>
 </html>
+
 
 
 

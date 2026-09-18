@@ -21,9 +21,7 @@ const uiTeksten = {
     curriculumTitle: 'Curriculum',
     curriculumCardText: 'Leerjaren, onderwijsperiodes en schoolinhoud per opleiding',
     backMain: 'Terug naar Hoofddomeinen',
-    curriculumIntro: 'Deze curriculum pagina is onder constructie. De inhoud wordt nog verder aangevuld en aangescherpt.',
-    curriculumConstructionTitle: 'Onder constructie',
-    curriculumConstructionText: 'We werken nog aan de definitieve curriculumopbouw per opleiding, leerjaar en onderwijsperiode.',
+    curriculumIntro: 'Kies een opleiding en bekijk per leerjaar welke modules, generieke onderdelen, examens en gekoppelde werkprocessen centraal staan.',
     chooseProgramme: 'Kies opleiding:',
     searchPlaceholder: 'Live zoeken in dossier (bv. HACCP)...',
     chooseMbo: 'Kies MBO-Opleiding / Uitstroom:',
@@ -73,7 +71,6 @@ const uiTeksten = {
     expectedBehaviour: 'Verwacht gedrag (Hoe laat je dit zien op stage):',
     defaultBehaviour: 'Laat zien dat je dit werkproces zorgvuldig en beroepsgericht uitvoert.',
     domainSubtitle: 'Nieuw kwalificatiedossier | Domein: {domain} | Crebo Dossier {crebo}',
-    curriculumConcept: 'Conceptindeling: gebruik dit als basis om het actuele onderwijsprogramma per periode verder te vullen of aan te scherpen.',
     schoolContent: 'Op school behandeld',
     workprocessLink: 'Koppeling met werkprocessen',
     workprocessesLinkedLater: 'Werkprocessen worden in deze periode door de opleiding gekoppeld.',
@@ -99,9 +96,7 @@ const uiTeksten = {
     curriculumTitle: 'Curriculum',
     curriculumCardText: 'Academic years, teaching periods and school content by programme',
     backMain: 'Back to Main Domains',
-    curriculumIntro: 'This curriculum page is under construction. The content will be further completed and refined.',
-    curriculumConstructionTitle: 'Under construction',
-    curriculumConstructionText: 'We are still working on the final curriculum structure for each programme, academic year and teaching period.',
+    curriculumIntro: 'Choose a programme and view the modules, general components, examinations and linked work processes for each academic year.',
     chooseProgramme: 'Choose programme:',
     searchPlaceholder: 'Search the dossier live (e.g. HACCP)...',
     chooseMbo: 'Choose MBO Programme / Profile:',
@@ -151,7 +146,6 @@ const uiTeksten = {
     expectedBehaviour: 'Expected behaviour (how to demonstrate this during work placement):',
     defaultBehaviour: 'Show that you carry out this work process carefully and professionally.',
     domainSubtitle: 'New qualification dossier | Domain: {domain} | Crebo Dossier {crebo}',
-    curriculumConcept: 'Concept structure: use this as a basis for further developing or refining the current programme content by period.',
     schoolContent: 'Covered at school',
     workprocessLink: 'Link to work processes',
     workprocessesLinkedLater: 'Work processes will be linked to this period by the programme team.',
@@ -552,31 +546,44 @@ function verdeelWerkprocessenOverPeriode(werkprocessen, periodeIndex) {
   return werkprocessen.slice(start, einde);
 }
 
-function getCurriculumThemas(leerjaar, periode, profielNaam) {
-  const basis = [
-    ['Kennismaken met het beroep, beroepshouding, veiligheid en gastvrij werken.', 'Basisvaardigheden oefenen in een veilige schoolsituatie.', 'Vaktaal, samenwerking en zorgvuldig werken.'],
-    ['Voorbereiden, uitvoeren en afronden van eenvoudige beroepsopdrachten.', 'Werken volgens stappenplan, instructies en kwaliteitsafspraken.', 'Feedback vragen en verwerken.'],
-    ['Praktijksituaties oefenen met meer zelfstandigheid en tijdsdruk.', 'Koppelen van theorie aan beroepshandelingen.', 'Bewijs verzamelen voor BPV en begeleiding.'],
-    ['Integreren van leerdoelen in grotere praktijkopdrachten.', 'Reflecteren op voortgang, gedrag en vakvaardigheid.', 'Voorbereiden op de volgende fase of BPV-periode.']
-  ];
+function escapeHtml(waarde) {
+  return String(waarde ?? '')
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#039;');
+}
 
-  if (leerjaar === 2) {
-    return [
-      `Verdieping van ${profielNaam} met complexere praktijksituaties.`,
-      basis[periode - 1][1],
-      'Meer aandacht voor plannen, afstemmen, kwaliteit en verantwoordelijkheid.'
-    ];
-  }
+function getCurriculumOpleiding(profielId) {
+  if (typeof curriculumDatabase === 'undefined' || !curriculumDatabase.opleidingen) return null;
+  return curriculumDatabase.opleidingen[profielId] || null;
+}
 
-  if (leerjaar === 3) {
-    return [
-      `Examenvoorbereiding en beroepsbekwaam handelen binnen ${profielNaam}.`,
-      'Zelfstandig werken aan beroepstaken, bewijs en reflectie.',
-      'Afronden, verantwoorden en verbinden met vervolgstudie of werk.'
-    ];
-  }
+function renderCurriculumDetails(details = []) {
+  const geldigeDetails = details.filter(detail => detail && (detail.code || detail.tekst || detail.label));
+  if (geldigeDetails.length === 0) return '';
+  return `
+    <ul class="curriculum-detail-list">
+      ${geldigeDetails.map(detail => `
+        <li>
+          ${detail.code ? `<span class="curriculum-detail-code">${escapeHtml(detail.code)}</span>` : ''}
+          <span>${escapeHtml(detail.tekst || detail.label || '')}</span>
+          ${detail.label && detail.tekst ? `<small>${escapeHtml(detail.label)}</small>` : ''}
+        </li>
+      `).join('')}
+    </ul>
+  `;
+}
 
-  return basis[periode - 1];
+function renderCurriculumOnderdeel(onderdeel) {
+  const nummer = onderdeel.nummer ? `<span class="curriculum-module-number">${escapeHtml(onderdeel.nummer)}</span>` : '';
+  return `
+    <article class="curriculum-module-card">
+      <h5>${nummer}<span>${escapeHtml(onderdeel.titel || 'Curriculumonderdeel')}</span></h5>
+      ${renderCurriculumDetails(onderdeel.details || [])}
+    </article>
+  `;
 }
 
 function renderCurriculumContent() {
@@ -585,62 +592,60 @@ function renderCurriculumContent() {
   if (!target || !item) return;
 
   const profiel = item.profiel;
-  const werkprocessen = getWerkprocessenVoorProfiel(profiel.id);
-  let periodeIndex = 0;
+  const curriculum = getCurriculumOpleiding(profiel.id);
+
+  if (!curriculum) {
+    target.innerHTML = `
+      <div class="summary-card">
+        <h4>${escapeHtml(getProfielKdLabel(profiel))}</h4>
+        <p class="curriculum-note">${t('dataPending')}</p>
+      </div>
+    `;
+    return;
+  }
 
   let html = `
-    <div class="summary-card">
-      <h4>${veld(profiel, 'naam')} (${veld(profiel, 'niveau')})</h4>
-      <p class="curriculum-note">${t('curriculumConcept')}</p>
+    <div class="summary-card curriculum-source-card">
+      <h4>${escapeHtml(curriculum.naam)} (${escapeHtml(curriculum.niveau)})</h4>
+      <p class="profile-kd-label">KD ${escapeHtml(curriculum.kwalificatie)} crebo: ${escapeHtml(curriculum.crebo)}</p>
+      <p class="curriculum-note">Bron: ${escapeHtml(curriculum.bronTitel || curriculumDatabase.bron)}</p>
     </div>
   `;
 
-  for (let leerjaar = 1; leerjaar <= 3; leerjaar++) {
+  curriculum.leerjaren.forEach((leerjaar, index) => {
     html += `
       <div class="curriculum-year">
         <div class="curriculum-year-header" role="button" tabindex="0" aria-expanded="false">
-          <h3>${t('year')} ${leerjaar}</h3>
+          <h3>${escapeHtml(leerjaar.titel || `${t('year')} ${index + 1}`)}</h3>
+          ${leerjaar.subtitel ? `<span class="curriculum-year-subtitle">${escapeHtml(leerjaar.subtitel)}</span>` : ''}
         </div>
         <div class="curriculum-year-body">
     `;
 
-    for (let periode = 1; periode <= 4; periode++) {
-      const themas = getCurriculumThemas(leerjaar, periode, veld(profiel, 'naam'));
-      const gekoppeldeWerkprocessen = verdeelWerkprocessenOverPeriode(werkprocessen, periodeIndex);
-      periodeIndex++;
-
+    (leerjaar.secties || []).forEach((sectie, sectieIndex) => {
       html += `
         <div class="curriculum-period">
           <div class="curriculum-period-header" role="button" tabindex="0" aria-expanded="false">
-            <h4>${t('period')} ${periode}</h4>
+            <h4>${escapeHtml(sectie.titel || `Onderdeel ${sectieIndex + 1}`)}</h4>
           </div>
           <div class="curriculum-period-body">
-            <div class="curriculum-block-grid">
-              <div class="curriculum-block">
-                <strong>${t('schoolContent')}</strong>
-                <ul>${themas.map(thema => `<li>${thema}</li>`).join('')}</ul>
-              </div>
-              <div class="curriculum-block">
-                <strong>${t('workprocessLink')}</strong>
-                <ul>${gekoppeldeWerkprocessen.map(wp => `<li>${wp.code} - ${wp.titel}</li>`).join('') || `<li>${t('workprocessesLinkedLater')}</li>`}</ul>
-              </div>
+            <div class="curriculum-module-list">
+              ${(sectie.onderdelen || []).map(renderCurriculumOnderdeel).join('')}
             </div>
-            <p class="curriculum-note">${t('curriculumNote')}</p>
           </div>
         </div>
       `;
-    }
+    });
 
     html += `
         </div>
       </div>
     `;
-  }
+  });
 
   target.innerHTML = html;
   prepareCurriculumAccordions();
 }
-
 function prepareCurriculumAccordions() {
   const years = Array.from(document.querySelectorAll('.curriculum-year'));
   years.forEach(year => {
@@ -1226,6 +1231,9 @@ if (typeof document !== 'undefined') {
     initDevicePopup();
   });
 }
+
+
+
 
 
 
