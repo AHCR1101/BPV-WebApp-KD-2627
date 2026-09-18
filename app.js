@@ -560,6 +560,17 @@ function getCurriculumOpleiding(profielId) {
   return curriculumDatabase.opleidingen[profielId] || null;
 }
 
+function getCurriculumVergelijkingen() {
+  if (typeof curriculumDatabase === 'undefined' || !curriculumDatabase.vergelijkingen) return [];
+  return [
+    { id: 'verg_hosp', label: 'Vergelijking m.b.t. Hospitality opleidingen' },
+    { id: 'verg_keuken', label: 'Vergelijking m.b.t. Keuken opleidingen' }
+  ]
+    .map(item => ({ ...item, data: curriculumDatabase.vergelijkingen[item.id] }))
+    .filter(item => item.data);
+}
+
+
 function renderCurriculumDetails(details = []) {
   const geldigeDetails = details.filter(detail => detail && (detail.code || detail.tekst || detail.label));
   if (geldigeDetails.length === 0) return '';
@@ -586,6 +597,267 @@ function renderCurriculumOnderdeel(onderdeel) {
   `;
 }
 
+function getVergelijkingKolomLabels(kopregel = []) {
+  return kopregel.map(kop => {
+    const waarde = String(kop || '');
+    const compactLabels = {
+      '27052': 'HGT N2 27052',
+      '27053': 'HPR N3 27053',
+      '27056': 'HMA N4 27056',
+      '27059': 'HON N4 27059',
+      'Kok N2 · 27060': 'KOK N2 27060',
+      'ZWK N3 · 27062': 'ZWK N3 27062',
+      'GSK N4 · 27064': 'GSK N4 27064',
+      'LGK N4 · 27065': 'LGK N4 27065'
+    };
+    return compactLabels[waarde] || waarde;
+  });
+}
+
+function renderCurriculumVergelijkingTabel(tabel = []) {
+  if (!Array.isArray(tabel) || tabel.length === 0) return '';
+
+  const [kopregel, ...rijen] = tabel;
+  if (!Array.isArray(kopregel) || kopregel.length === 0) return '';
+  const zichtbareKopregel = getVergelijkingKolomLabels(kopregel);
+
+  return `
+    <div class="curriculum-comparison-table-wrap" role="region" aria-label="Vergelijkingstabel" tabindex="0">
+      <table class="curriculum-comparison-table">
+        <thead>
+          <tr>
+            ${zichtbareKopregel.map(kop => `<th>${escapeHtml(kop)}</th>`).join('')}
+          </tr>
+        </thead>
+        <tbody>
+          ${rijen.map(rij => {
+            if (!Array.isArray(rij) || rij.length === 0) return '';
+            if (rij.length === 1) {
+              return `<tr class="curriculum-table-group"><td colspan="${kopregel.length}">${escapeHtml(rij[0])}</td></tr>`;
+            }
+            return `
+              <tr>
+                ${kopregel.map((_, index) => {
+                  const waarde = rij[index] || '';
+                  const isMarker = index > 1 && /^(2|3|4|4★|✓|—|2F|3F|B1|A2\/B1|B2)$/u.test(waarde);
+                  return `<td>${isMarker ? `<span class="curriculum-table-marker">${escapeHtml(waarde)}</span>` : escapeHtml(waarde)}</td>`;
+                }).join('')}
+              </tr>
+            `;
+          }).join('')}
+        </tbody>
+      </table>
+    </div>
+  `;
+}
+function getCurriculumVergelijkingIntro(item) {
+  const secties = item.data.secties || [];
+  const vergelijking = secties.find(sectie => {
+    const tekst = `${sectie.label || ''} ${sectie.titel || ''}`.toLowerCase();
+    return tekst.includes('vergelijk') || tekst.includes('overlap');
+  });
+  const extraOmschrijving = secties.find(sectie => !sectie.titel && !sectie.label && sectie.omschrijving && (sectie.modules || []).length === 0);
+  return {
+    label: vergelijking?.label || 'Vergelijking',
+    titel: vergelijking?.titel || item.label,
+    omschrijving: vergelijking?.omschrijving || extraOmschrijving?.omschrijving || ''
+  };
+}
+
+function getDoorstroomPosterData(id) {
+  const posters = {
+    verg_hosp: {
+      label: 'Doorstroomroute',
+      titel: 'Van Gastvrijheidstalent tot specialisatie',
+      omschrijving: 'Gastvrijheidstalent (N2) is het instroompunt. Via Hospitality Professional (N3) kun je doorstromen naar Hospitality Manager of Ondernemer Hospitality (beide N4), afhankelijk van of je wilt leidinggeven of ondernemen.',
+      kolommen: [
+        [
+          {
+            niveau: 'HGT', titel: 'N2 · 27052', variant: 'light-blue', regels: [
+              ['Crebo', 'Hospitality Gastvrijheidstalent'],
+              ['P1-K1', 'Bedient gasten (4 wp)'],
+              ['Focus', 'Uitvoeren, gastcontact'],
+              ['Examen', 'NL/Rek 2F']
+            ]
+          }
+        ],
+        [
+          {
+            niveau: 'HPR', titel: 'N3 · 27053', variant: 'blue', regels: [
+              ['Crebo', 'Hospitality Professional'],
+              ['P2-K1/K2', 'Bedient gasten & coordineert (8 wp)'],
+              ['Focus', 'Coordineert, voorraad, klachten'],
+              ['Examen', 'NL 2F/3F · Engels B1']
+            ]
+          }
+        ],
+        [
+          {
+            niveau: 'HMA', titel: 'N4 · 27056', variant: 'blue', regels: [
+              ['Crebo', 'Hospitality Manager'],
+              ['P5-K1/K2/K3', 'Operationeel, leiding, bedrijfsprocessen (13 wp)'],
+              ['Focus', 'Aansturen, sociaal-hygienisch beleid']
+            ]
+          },
+          {
+            niveau: 'HON', titel: 'N4 · 27059', variant: 'orange', regels: [
+              ['Crebo', 'Hospitality Ondernemer · 3-jarig'],
+              ['P8-K1/K2/K3', 'Operationeel, leiding, onderneemt (17 wp)'],
+              ['Eindproduct', 'Businessplan — presentatie & verdediging']
+            ]
+          }
+        ],
+        [
+          {
+            niveau: 'HBO', titel: 'HBO doorstroom', variant: 'orange', regels: [
+              ['HOT', 'Hotel Management'],
+              ['IHM', 'International Hospitality Management'],
+              ['FAC', 'Facility Management'],
+              ['BE', 'Bedrijfskunde / Event Management']
+            ]
+          }
+        ]
+      ]
+    },
+    verg_keuken: {
+      label: 'Doorstroomroute',
+      titel: 'Van Kok naar specialisatie',
+      omschrijving: 'Kok (N2) is het instroompunt. Via Zelfstandig Werkend Kok (N3) kun je doorstromen naar Gespecialiseerd Kok of Leidinggevende Keuken (beide N4), afhankelijk van of je je wilt specialiseren in gastronomie of leidinggeven.',
+      kolommen: [
+        [
+          {
+            niveau: 'N2', titel: 'Kok', variant: 'light-blue', regels: [
+              ['27060', 'Crebo Kok'],
+              ['Basisdeel', 'B1-K1, B1-K2, B1-K3'],
+              ['Focus', 'Bereiden, voorraad, gastvrijheid — uitvoerend niveau'],
+              ['Examen', 'NL 2F · Rekenen N2']
+            ]
+          }
+        ],
+        [
+          {
+            niveau: 'N3', titel: 'Zelfstandig Werkend Kok', variant: 'blue', regels: [
+              ['27062', 'Crebo Zelfstandig werkend kok'],
+              ['P3-K1', 'Coordineert & optimaliseert (4 wp)'],
+              ['Focus', 'Zelfstandig koken, vernieuwen & instrueren'],
+              ['Examen', 'NL 2F · Rekenen N3']
+            ]
+          }
+        ],
+        [
+          {
+            niveau: 'N4', titel: 'Gespecialiseerd Kok', variant: 'blue', regels: [
+              ['27064', 'Crebo Gespecialiseerd kok'],
+              ['P5-K1', 'Geeft leiding (2 wp)'],
+              ['P5-K2', 'Optimaliseert gastronomisch aanbod (5 wp)'],
+              ['Focus', 'Culinaire creativiteit, menuontwikkeling & kwaliteit']
+            ]
+          },
+          {
+            niveau: 'N4', titel: 'Leidinggevende Keuken', variant: 'blue', regels: [
+              ['27065', 'Crebo Leidinggevende keuken'],
+              ['P6-K1', 'Geeft leiding (3 wp)'],
+              ['P6-K2', 'Beheert keukenprocessen (4 wp)'],
+              ['Focus', 'Aansturen, plannen, financien & menu-engineering']
+            ]
+          }
+        ],
+        [
+          {
+            niveau: 'HBO', titel: 'HBO doorstroom', variant: 'orange', regels: [
+              ['HOT', 'Hotel Management'],
+              ['FAC', 'Facility Management'],
+              ['F&B', 'Food & Business (Hogeschool)'],
+              ['CUL', 'Culinary Arts & Management']
+            ]
+          }
+        ]
+      ]
+    }
+  };
+  return posters[id] || null;
+}
+
+function renderDoorstroomPosterCard(kaart) {
+  return `
+    <article class="curriculum-flow-card flow-${escapeHtml(kaart.variant || 'blue')}">
+      <div class="curriculum-flow-card-head">
+        <span>${escapeHtml(kaart.niveau)}</span>
+        <h5>${escapeHtml(kaart.titel)}</h5>
+      </div>
+      <div class="curriculum-flow-card-body">
+        ${(kaart.regels || []).map(([code, tekst]) => `
+          <div class="curriculum-flow-row">
+            <span>${escapeHtml(code)}</span>
+            <p>${escapeHtml(tekst)}</p>
+          </div>
+        `).join('')}
+      </div>
+    </article>
+  `;
+}
+
+function renderDoorstroomPoster(id) {
+  const poster = getDoorstroomPosterData(id);
+  if (!poster) return '';
+
+  return `
+    <div class="curriculum-flow-poster">
+      <div class="curriculum-flow-intro">
+        <span>${escapeHtml(poster.label)}</span>
+        <h4>${escapeHtml(poster.titel)}</h4>
+        <p>${escapeHtml(poster.omschrijving)}</p>
+      </div>
+      <div class="curriculum-flow-grid">
+        ${poster.kolommen.map((kolom, index) => `
+          ${index > 0 ? '<div class="curriculum-flow-arrow">&rarr;</div>' : ''}
+          <div class="curriculum-flow-column">
+            ${kolom.map(renderDoorstroomPosterCard).join('')}
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `;
+}
+
+function renderCurriculumVergelijkingInhoud(item) {
+  const intro = getCurriculumVergelijkingIntro(item);
+  return `
+    <div class="curriculum-comparison-panel curriculum-comparison-poster-intro">
+      <span class="curriculum-comparison-label">${escapeHtml(intro.label)}</span>
+      <h4>${escapeHtml(intro.titel)}</h4>
+      ${intro.omschrijving ? `<p class="curriculum-comparison-text">${escapeHtml(intro.omschrijving)}</p>` : ''}
+    </div>
+    ${renderCurriculumVergelijkingTabel(item.data.tabel || [])}
+    ${renderDoorstroomPoster(item.id)}
+  `;
+}
+function renderCurriculumVergelijkingen() {
+  const vergelijkingen = getCurriculumVergelijkingen();
+  if (vergelijkingen.length === 0) return '';
+
+  return `
+    <section class="curriculum-comparison-section">
+      ${vergelijkingen.map(item => `
+        <div class="curriculum-year curriculum-comparison">
+          <div class="curriculum-year-header" role="button" tabindex="0" aria-expanded="false">
+            <h3>${escapeHtml(item.label)}</h3>
+            <span class="curriculum-year-subtitle">${escapeHtml(item.data.titel || '')}</span>
+          </div>
+          <div class="curriculum-year-body">
+            ${renderCurriculumVergelijkingInhoud(item)}
+          </div>
+        </div>
+      `).join('')}
+    </section>
+  `;
+}
+
+function renderCurriculumVergelijkingenTarget() {
+  const target = document.getElementById('curriculum-comparison-target');
+  if (!target) return;
+  target.innerHTML = renderCurriculumVergelijkingen();
+}
 function renderCurriculumContent() {
   const target = document.getElementById('curriculum-render-target');
   const item = vindCurriculumProfiel();
@@ -644,8 +916,10 @@ function renderCurriculumContent() {
   });
 
   target.innerHTML = html;
+  renderCurriculumVergelijkingenTarget();
   prepareCurriculumAccordions();
 }
+
 function prepareCurriculumAccordions() {
   const years = Array.from(document.querySelectorAll('.curriculum-year'));
   years.forEach(year => {
@@ -1231,6 +1505,18 @@ if (typeof document !== 'undefined') {
     initDevicePopup();
   });
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

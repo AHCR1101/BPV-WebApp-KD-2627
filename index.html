@@ -1422,6 +1422,274 @@
       color: #718096;
       font-size: 0.78rem;
     }
+    .curriculum-comparison-section {
+      display: grid;
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+.curriculum-comparison {
+      border-top: 4px solid var(--albeda-orange);
+    }
+
+    .curriculum-comparison .curriculum-year-header {
+      background: linear-gradient(90deg, rgba(237, 125, 49, 0.98), rgba(237, 125, 49, 0.86));
+    }
+
+    .curriculum-comparison-text {
+      margin: 0 0 12px;
+      color: #4a5568;
+      line-height: 1.55;
+    }
+    .curriculum-comparison-panel {
+      display: grid;
+      gap: 12px;
+      padding: 16px;
+      margin-bottom: 14px;
+      background: var(--white);
+      border: 1px solid rgba(10, 98, 175, 0.14);
+      border-left: 5px solid var(--albeda-orange);
+      border-radius: 4px;
+      box-shadow: 0 8px 20px rgba(10, 98, 175, 0.06);
+    }
+
+    .curriculum-comparison-panel h4 {
+      margin: 0;
+      color: var(--albeda-blue);
+      font-size: 1.08rem;
+      line-height: 1.3;
+    }
+
+    .curriculum-comparison-label {
+      color: var(--albeda-light-blue);
+      font-size: 0.78rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0;
+    }
+.curriculum-comparison-table-wrap {
+      margin-top: 14px;
+      overflow-x: auto;
+      border: 1px solid rgba(10, 98, 175, 0.14);
+      border-radius: 4px;
+      background: var(--white);
+      box-shadow: 0 8px 20px rgba(10, 98, 175, 0.06);
+    }
+
+    .curriculum-comparison-table {
+      width: 100%;
+      min-width: 860px;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+
+    .curriculum-comparison-table th {
+      background: var(--albeda-blue);
+      color: var(--white);
+      text-align: left;
+      padding: 11px 12px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .curriculum-comparison-table td {
+      padding: 12px;
+      border-top: 1px solid rgba(10, 98, 175, 0.12);
+      color: #1f2f46;
+      line-height: 1.45;
+      vertical-align: top;
+    }
+
+    .curriculum-comparison-table td:first-child {
+      color: var(--albeda-blue);
+      font-weight: 800;
+      width: 22%;
+    }
+
+    .curriculum-comparison-table td:nth-child(2) {
+      width: 38%;
+    }
+
+    .curriculum-table-group td {
+      background: #eef6fc;
+      color: var(--albeda-blue);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0;
+    }
+
+    .curriculum-table-marker {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 26px;
+      min-height: 24px;
+      padding: 2px 7px;
+      border-radius: 4px;
+      background: #eef6fc;
+      color: var(--albeda-blue);
+      font-weight: 900;
+      white-space: nowrap;
+    }
+    .curriculum-comparison-poster-intro {
+      margin-bottom: 14px;
+    }
+
+    .curriculum-flow-poster {
+      max-width: 100%;
+      margin-top: 20px;
+      padding: 18px;
+      overflow: hidden;
+      background: #f7f9fc;
+      border: 1px solid rgba(10, 98, 175, 0.14);
+      border-radius: 4px;
+      box-shadow: 0 8px 20px rgba(10, 98, 175, 0.06);
+    }
+
+    .curriculum-flow-intro {
+      max-width: 720px;
+      margin-bottom: 20px;
+    }
+
+    .curriculum-flow-intro span {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--albeda-orange);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .curriculum-flow-intro h4 {
+      margin: 0 0 8px;
+      color: var(--albeda-blue);
+      font-size: clamp(1.25rem, 2.4vw, 1.85rem);
+      line-height: 1.2;
+    }
+
+    .curriculum-flow-intro p {
+      margin: 0;
+      color: #4a5568;
+      line-height: 1.6;
+    }
+
+    .curriculum-flow-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr);
+      gap: 14px;
+      align-items: center;
+    }
+
+    .curriculum-flow-column {
+      display: grid;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .curriculum-flow-arrow {
+      color: #9aa6b2;
+      font-size: 1.55rem;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .curriculum-flow-card {
+      min-width: 0;
+      overflow: hidden;
+      background: var(--white);
+      border: 1px solid rgba(10, 98, 175, 0.16);
+      border-radius: 6px;
+      box-shadow: 0 6px 16px rgba(10, 98, 175, 0.06);
+    }
+
+    .curriculum-flow-card-head {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      padding: 14px 16px;
+      color: var(--white);
+      background: var(--albeda-blue);
+    }
+
+    .flow-light-blue .curriculum-flow-card-head { background: var(--albeda-light-blue); }
+    .flow-orange .curriculum-flow-card-head { background: var(--albeda-orange); }
+
+    .curriculum-flow-card-head span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      flex: 0 0 36px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.18);
+      font-weight: 900;
+      font-size: 0.95rem;
+    }
+
+    .curriculum-flow-card-head h5 {
+      min-width: 0;
+      margin: 0;
+      color: var(--white);
+      font-size: 1rem;
+      line-height: 1.3;
+      overflow-wrap: anywhere;
+    }
+
+    .curriculum-flow-card-body {
+      display: grid;
+      padding: 12px 14px;
+    }
+
+    .curriculum-flow-row {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 8px;
+      align-items: baseline;
+      padding: 7px 0;
+      border-bottom: 1px solid rgba(10, 98, 175, 0.1);
+      color: #4a5568;
+      font-size: 0.86rem;
+      line-height: 1.45;
+    }
+
+    .curriculum-flow-row:last-child {
+      border-bottom: 0;
+    }
+
+    .curriculum-flow-row span {
+      display: inline-flex;
+      width: fit-content;
+      padding: 2px 6px;
+      border-radius: 3px;
+      background: #dbeafe;
+      color: var(--albeda-blue);
+      font-size: 0.7rem;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .flow-orange .curriculum-flow-row span {
+      background: #fff0df;
+      color: #9a4a00;
+    }
+
+    .curriculum-flow-row p {
+      min-width: 0;
+      margin: 0;
+      overflow-wrap: anywhere;
+    }
+
+    @media (max-width: 980px) {
+      .curriculum-flow-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .curriculum-flow-arrow {
+        transform: rotate(90deg);
+      }
+    }
 
     /* Documentviewer standaard volledig verborgen tot een PDF wordt geopend. */
     .document-viewer {
@@ -1866,6 +2134,8 @@
           </div>
         </div>
 
+        <div id="curriculum-comparison-target"></div>
+
         <div id="curriculum-render-target"></div>
       </div>
     </div>
@@ -1969,6 +2239,15 @@
   <script src="app.js?v=20260918-curriculum"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
 
 
 

@@ -1,6 +1,6 @@
-// curriculum-data.js
+// Curriculumdata voor de curriculumweergave in de webapp.
 // Gegenereerd uit Albeda Curriculumposter Horecacollege Rotterdam.html.
-// Bron-HTML is alleen gebruikt als inhoudelijke databron; de oude hub/iframes worden niet geladen.
+// De oude hub/iframes worden niet geladen; deze data voedt de bestaande interface.
 const curriculumDatabase = {
   "bron": "Albeda Curriculumposter Horecacollege Rotterdam.html",
   "gegenereerdOp": "2026-09-18",
@@ -3943,13 +3943,13 @@ const curriculumDatabase = {
       "secties": [
         {
           "label": "Leeswijzer",
-          "titel": "Drie zelfstandige opleidingen, één fundament",
+          "titel": "Vier opleidingen, één fundament",
           "omschrijving": "Elke opleiding heeft zijn eigen curriculumblok hieronder, met eigen modules, werkprocessen en stage-invulling — net als bij de Ondernemer Hospitality-leerlijn. Onderaan staat een overlapoverzicht dat laat zien welke onderdelen (basisdeel, generieke vakken, kerntaken) tussen de opleidingen worden gedeeld, en hoe ze in niveau opbouwen van Medewerker (niveau 2) tot Leidinggevende (niveau 4) en Ondernemer (niveau 4, 3-jarig).",
           "modules": []
         },
         {
-          "label": "",
-          "titel": "",
+          "label": "Crebo 27052 · Profieldeel P1 · Niveau 2 · BOL / BBL",
+          "titel": "Gastvrijheidstalent",
           "omschrijving": "",
           "modules": [
             {
@@ -4184,8 +4184,8 @@ const curriculumDatabase = {
           ]
         },
         {
-          "label": "",
-          "titel": "",
+          "label": "Crebo 27053 · Profieldeel P2 · Niveau 3 · BOL / BBL",
+          "titel": "Hospitality Professional",
           "omschrijving": "",
           "modules": [
             {
@@ -4456,8 +4456,8 @@ const curriculumDatabase = {
           ]
         },
         {
-          "label": "",
-          "titel": "",
+          "label": "Crebo 27056 · Profieldeel P5 · Niveau 4 · BOL / BBL",
+          "titel": "Hospitality Manager",
           "omschrijving": "",
           "modules": [
             {
@@ -4813,8 +4813,8 @@ const curriculumDatabase = {
           ]
         },
         {
-          "label": "",
-          "titel": "",
+          "label": "Crebo 27059 · Profieldeel P8 · Niveau 4 · 3-jarig",
+          "titel": "Ondernemer Hospitality",
           "omschrijving": "",
           "modules": [
             {
@@ -5150,6 +5150,9 @@ const curriculumDatabase = {
           "—",
           "—",
           "4★"
+        ],
+        [
+          "Generieke vakken & Stage"
         ],
         [
           "Generieke vakken NL · Rekenen · Engels",
@@ -6465,14 +6468,14 @@ const curriculumDatabase = {
         },
         {
           "label": "Overlap & opbouw",
-          "titel": "Vergelijking tussen de drie keukenopleidingen",
+          "titel": "Vergelijking tussen de vier keukenopleidingen",
           "omschrijving": "",
           "modules": []
         },
         {
           "label": "",
           "titel": "",
-          "omschrijving": "Alle drie de opleidingen delen hetzelfde basisdeel in leerjaar 1 en 2. Het kennisniveau en de zelfstandigheid nemen toe per opleiding. In leerjaar 3 gaan de profielen elk een eigen richting.",
+          "omschrijving": "Alle vier de opleidingen delen hetzelfde basisdeel in leerjaar 1 en 2. Het kennisniveau en de zelfstandigheid nemen toe per opleiding. In leerjaar 3 gaan de profielen elk een eigen richting.",
           "modules": []
         },
         {
